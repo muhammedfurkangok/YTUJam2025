@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974b2f0dd782b8f4ebdbfa1013120c41, type: 3}
   m_Name: NewCard
   m_EditorClassIdentifier: 
+  cardData:
+  - CardName: Welcome Life  <shake><color=red>Again!</color></shake>
+    CardImage: {fileID: -7053939661997144990, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+    CardDescription: YOUR WOLD IS UPSIRDE DOWN

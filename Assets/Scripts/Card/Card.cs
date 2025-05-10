@@ -7,34 +7,36 @@ public class Card : MonoBehaviour
 {
     public Transform cardTransform;
 
-    [Header("Shake Settings")]
-    public float shakeDuration = 2.5f;
+    [Header("Shake Settings")] public float shakeDuration = 2.5f;
     public float shakeStrength = 20f;
     public int shakeVibrato = 20;
 
-    [Header("Reveal Settings")]
-    public float preRevealPause = 0.2f;
+    [Header("Reveal Settings")] public float preRevealPause = 0.2f;
     public float slowRevealDuration = 1.5f;
     public Ease revealEase = Ease.InOutElastic;
     public RawImage allInOneMaterial;
 
 
-    [Header("Card Setttings")] 
-    public TextMeshProUGUI cardHeader;
-    public Image cardImage ;
+    [Header("Card Setttings")] public TextMeshProUGUI cardHeader;
+    public Image cardImage;
     public TextMeshProUGUI cardDescription;
+    public CanvasGroup canvasGroup;
 
-    private void Start()
+
+    public void SetCardData(CardData cardData)
     {
-        cardTransform.localEulerAngles = new Vector3(0, 180, 0);
-        RevealCard();
+        cardHeader.text = cardData.CardName;
+        cardImage.sprite = cardData.CardImage;
+        cardDescription.text = cardData.CardDescription;
     }
 
     public void RevealCard()
     {
+        cardTransform.localEulerAngles = new Vector3(0, 180, 0);
+        canvasGroup.alpha = 1;
         cardTransform.DOShakeRotation(
             duration: shakeDuration,
-            strength: new Vector3(0, shakeStrength, 0),
+            strength: new Vector3(shakeStrength, shakeStrength, 0),
             vibrato: shakeVibrato,
             randomness: 100,
             fadeOut: true
@@ -52,13 +54,30 @@ public class Card : MonoBehaviour
 
                 revealSequence.OnComplete(() =>
                 {
-                    DOVirtual.Float(0, 1, slowRevealDuration, (value) =>
-                    {
-                        allInOneMaterial.material.SetFloat("_ShineLocation", value);
-                    });
-                    Debug.Log("🃏 Kart Açıldı: Şimdi içeriği okuyabilirsin.");
+                    DOVirtual.Float(0, 1, slowRevealDuration,
+                            (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); })
+                        .OnComplete(() => { DOVirtual.DelayedCall(0.5f, () => { HideCard(); }); });
                 });
             });
         });
+    }
+
+    public void HideCard()
+    {
+        cardTransform.DORotate(new Vector3(0, 180, 0), slowRevealDuration * 0.5f)
+            .SetEase(Ease.InBack).OnComplete(() =>
+            {
+                DOVirtual.Float(1, 0, slowRevealDuration,
+                    (value) =>
+                    {
+                        allInOneMaterial.material.SetFloat("_ShineLocation", value);
+                    }).OnComplete( () =>
+                    {
+                        canvasGroup.DOFade(0, slowRevealDuration).OnComplete(() =>
+                        {
+                            gameObject.SetActive(false);
+                        });
+                    });
+            });
     }
 }
