@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Card : MonoBehaviour
     public float preRevealPause = 0.2f;
     public float slowRevealDuration = 1.5f;
     public Ease revealEase = Ease.InOutElastic;
+    public RawImage allInOneMaterial;
 
     private void Start()
     {
@@ -43,6 +45,10 @@ public class Card : MonoBehaviour
 
                 revealSequence.OnComplete(() =>
                 {
+                    DOVirtual.Float(0, 1, slowRevealDuration, (value) =>
+                    {
+                        allInOneMaterial.material.SetFloat("_ShineLocation", value);
+                    });
                     Debug.Log("🃏 Kart Açıldı: Şimdi içeriği okuyabilirsin.");
                 });
             });
