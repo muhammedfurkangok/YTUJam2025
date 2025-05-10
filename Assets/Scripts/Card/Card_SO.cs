@@ -15,5 +15,7 @@ public struct CardData
 {
     public string CardName;
     public Sprite CardImage;
+    public Sprite  CardFront;
+    public Sprite CardBack;
     public string CardDescription;
 }
