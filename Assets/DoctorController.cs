@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class DoctorController : MonoBehaviour
 {
+    [Header("DOTWEENPATH")]
     [SerializeField] DOTweenPath doTweenPath;
 
+    [Header("ANIMATOR")]
     [SerializeField] Animator animator;
 
-    public static event Action OnDoctorStab;
-    public static event Action OnDoctorEnject;
-    public static event Action OnDoctorAttackEnd;
+
+    [Header("EFFECTS")]
+    [SerializeField] float stabEffectDuration = 0.5f;
+    [SerializeField] float enjectEffectDuration = 1f;
+    [SerializeField] float endEffectDuration =1f;
+
+
+    public static event Action<float> OnDoctorStab;
+    public static event Action<float> OnDoctorEnject;
+    public static event Action<float> OnDoctorAttackEnd;
 
 
     private void Start()
@@ -26,15 +35,15 @@ public class DoctorController : MonoBehaviour
 
     public void OnDoctorStabAnimationEvent()
     {
-        OnDoctorStab?.Invoke();
+        OnDoctorStab?.Invoke(stabEffectDuration);
     }
 
     public void OnDoctorEnjectAnimationEvent()
     {
-        OnDoctorEnject?.Invoke();
+        OnDoctorEnject?.Invoke(enjectEffectDuration);
     }
     public void OnDoctorAttackEndAnimationEvent()
     {
-        OnDoctorAttackEnd?.Invoke();
+        OnDoctorAttackEnd?.Invoke(endEffectDuration);
     }
 }
