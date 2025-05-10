@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 5008699058049244355}
-    m_Position: {x: 380, y: 80, z: 0}
+    m_Position: {x: 390, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7514996131660800325}
     m_Position: {x: 270, y: 140, z: 0}
@@ -81,7 +81,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RespawnAnim
-  m_Speed: 0.6
+  m_Speed: 1.05
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
