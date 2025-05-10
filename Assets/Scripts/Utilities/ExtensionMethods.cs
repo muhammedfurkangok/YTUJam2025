@@ -27,6 +27,26 @@ namespace Utilities
                 DOTween.To(() => component.intensity.value, x => component.intensity.value = x, 0f, duration / 2);
             });
         }
-        
+        /// <summary>
+        /// Vertical Squish used to accent the start and the end of a jump.
+        /// </summary>
+        public static void DoSquish(this UnityEngine.Transform squishObj, float horizontalSquishAmount, float vSquishDuration)
+        {
+            squishObj.transform.DOScaleX(squishObj.transform.localScale.x + horizontalSquishAmount, vSquishDuration).OnComplete(() =>
+            {
+                squishObj.transform.DOScaleX(squishObj.transform.localScale.x - horizontalSquishAmount, vSquishDuration);
+            }
+            );
+        }
+        public static void DoSquash(this UnityEngine.Transform squashObj, float horizontalSquashAmount, float hSquashDuration)
+        {
+            squashObj.transform.DOScaleY(squashObj.transform.localScale.y + horizontalSquashAmount, hSquashDuration).OnComplete(() =>
+            {
+                squashObj.transform.DOScaleY(squashObj.transform.localScale.y - horizontalSquashAmount, hSquashDuration);
+            }
+            );
+        }
+
+
     }
 }
