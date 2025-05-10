@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,12 @@ public class Card : MonoBehaviour
     public float slowRevealDuration = 1.5f;
     public Ease revealEase = Ease.InOutElastic;
     public RawImage allInOneMaterial;
+
+
+    [Header("Card Setttings")] 
+    public TextMeshProUGUI cardHeader;
+    public Image cardImage ;
+    public TextMeshProUGUI cardDescription;
 
     private void Start()
     {
