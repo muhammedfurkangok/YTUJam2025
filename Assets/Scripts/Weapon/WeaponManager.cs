@@ -1,64 +1,40 @@
-using DG.Tweening;
-using Runtime.System.InputSystem;
 using UnityEngine;
-using Weapon.Interfaces;
+using Weapon;
 
-namespace Weapon
+public class WeaponManager : MonoBehaviour
 {
-    public class WeaponManager : MonoBehaviour
+    public WeaponBase[] weapons;
+    private int currentWeaponIndex;
+    private WeaponBase activeWeapon;
+
+    private void Update()
     {
-        public WeaponBase[] weapons;
-        private int currentWeaponIndex = 0;
-        [SerializeField] private WeaponBase activeWeapon;
+        HandleWeaponSwitch();
+        if (activeWeapon == null) return;
 
-      
+        if (Input.GetMouseButtonDown(0) && !activeWeapon.IsAuto()) activeWeapon.Fire();
+        if (Input.GetMouseButton(0) && activeWeapon.IsAuto()) activeWeapon.Fire();
+        if (Input.GetMouseButtonUp(0)) activeWeapon.ResetFiringState();
+        if (Input.GetKeyDown(KeyCode.R)) activeWeapon.Reload();
+    }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1)&& weapons[0].canBeEquipped) EquipWeapon(0);
-            if (Input.GetKeyDown(KeyCode.Alpha2)&& weapons[1].canBeEquipped) EquipWeapon(1);
+    private void HandleWeaponSwitch()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) EquipWeapon(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) EquipWeapon(1);
+    }
 
-            if (InputManager.Instance.IsRunning())
-            {
-                activeWeapon?.weaponAnimator.SetFloat("Speed", 1f);
-            }
-            else
-            {
-                activeWeapon?.weaponAnimator.SetFloat("Speed", 0f);
-            }
-            if (activeWeapon == null) return;
-            if (Input.GetMouseButtonDown(0) && !activeWeapon.isAuto) activeWeapon.Fire();
-            if (Input.GetMouseButton(0) && activeWeapon.isAuto) activeWeapon.Fire();
-            if (Input.GetMouseButtonUp(0)) activeWeapon.ResetFiringState();
-            if (Input.GetKeyDown(KeyCode.R)) activeWeapon.Reload();
-        }
+    public void EquipWeapon(int index)
+    {
+        if (index < 0 || index >= weapons.Length) return;
 
-        public void EquipWeapon(int index)
-        {
-            if (index < 0 || index >= weapons.Length) return;
+        if (activeWeapon != null) activeWeapon.gameObject.SetActive(false);
 
-            if (activeWeapon != null)
-            {
-                activeWeapon.gameObject.SetActive(false);
-                // RectTransform prevImageRect = activeWeapon.weaponImage;
-                // RectTransform prevIconRect = activeWeapon.weaponIcon;
-                // prevImageRect.DOSizeDelta(activeWeapon.WeaponImageNormalSize, 0.5f);
-                // prevIconRect.DOSizeDelta(activeWeapon.WeaponIconNormalSize, 0.5f);
-            }
+        activeWeapon = weapons[index];
+        activeWeapon.gameObject.SetActive(true);
+        currentWeaponIndex = index;
 
-            activeWeapon = weapons[index];
-            activeWeapon.gameObject.SetActive(true);
-            UIManager.Instance.UpdateAmmoText(activeWeapon.currentAmmo, activeWeapon.maxAmmo);
-            currentWeaponIndex = index;
-
-            // RectTransform imageRect = activeWeapon.weaponImage;
-            // RectTransform iconRect = activeWeapon.weaponIcon;
-            // Vector2 selectedImageSize = activeWeapon.WeaponImageNormalSize * 1.5f;
-            // Vector2 selectedIconSize = activeWeapon.WeaponIconNormalSize * 1.5f;
-            // imageRect.DOSizeDelta(selectedImageSize, 0.5f);
-            // iconRect.DOSizeDelta(selectedIconSize, 0.5f);
-
-            Debug.Log($"Silah Değiştirildi: {activeWeapon.weaponName}");
-        }
+        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo);
+        Debug.Log($"[WeaponManager] Equipped: {activeWeapon.data.weaponName}");
     }
 }

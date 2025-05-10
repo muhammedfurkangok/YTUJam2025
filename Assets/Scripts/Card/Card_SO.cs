@@ -14,6 +14,6 @@ public class Card_SO : ScriptableObject
 public struct CardData
 {
     public string CardName;
-    public RawImage CardImage;
+    public Sprite CardImage;
     public string CardDescription;
 }
