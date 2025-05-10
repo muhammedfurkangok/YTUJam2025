@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 51625f3db02847349828ac5f3f4dcaae
+guid: 6364631f1e6bc1a44a82ae6f39ecbf4f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gun Movement-Sheet_0
+      name: Fist Animation 2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54b514c83aadef4399f4a7f35787e4b
-      internalID: -330957793
+      spriteID: 3dd3e2ebf277d3a43ba38a0000138b36
+      internalID: 1349453967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Movement-Sheet_1
+      name: Fist Animation 2_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 300
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d957dd2b31c73a4cb533f4bcd70c195
-      internalID: -262430880
+      spriteID: 87445b2dff44ea54ca5e9ce08535edc1
+      internalID: 1460134003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Movement-Sheet_2
+      name: Fist Animation 2_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 600
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4828580adb95d5439c958d1bdc5da61
-      internalID: -471374860
+      spriteID: 90ad8b7c409a4d24ead280dabd2dc45d
+      internalID: 2116481452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Movement-Sheet_3
+      name: Fist Animation 2_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 900
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1257b27d23666a147ab07d4d5008998c
-      internalID: -888462303
+      spriteID: 4c740bd0af88e81499c37c29012fba27
+      internalID: 165055987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Movement-Sheet_4
+      name: Fist Animation 2_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 1200
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df6bf48deb040dc47b9bbaeb12d26615
-      internalID: 1127329597
+      spriteID: d0c4a6fdc8442d8459e7aa68eec07a76
+      internalID: 742449162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Movement-Sheet_5
+      name: Fist Animation 2_5
       rect:
         serializedVersion: 2
-        x: 180
+        x: 1500
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48df388d20deba54ab460e8948bd8ae2
-      internalID: -1290706640
+      spriteID: 79e63ca7e50128a46b200bb4567981e5
+      internalID: -460023554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Movement-Sheet_6
+      name: Fist Animation 2_6
       rect:
         serializedVersion: 2
-        x: 216
+        x: 1800
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,8 +244,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 452092a7664b5244fb723a7c6667f8ad
-      internalID: -1929211737
+      spriteID: 8120ffc04566d374ab23fcbe0971a9f6
+      internalID: 965619358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist Animation 2_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 300
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de68be27c8c7cd40945accf73e28279
+      internalID: -1632176504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist Animation 2_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 300
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c535171fe61056146923f4b7ec3bc2e9
+      internalID: 89943058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist Animation 2_9
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 300
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dae2f318664e28448d1b20f16efd2a6
+      internalID: 50075661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist Animation 2_10
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 300
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbda45e9e2cb08c45a10809359bbedae
+      internalID: 419965241
       vertices: []
       indices: 
       edges: []
@@ -254,7 +342,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 8509954f864330b439dd6ee5fa015ab0
     internalID: 0
     vertices: []
     indices: 
@@ -264,13 +352,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gun Movement-Sheet_0: -330957793
-      Gun Movement-Sheet_1: -262430880
-      Gun Movement-Sheet_2: -471374860
-      Gun Movement-Sheet_3: -888462303
-      Gun Movement-Sheet_4: 1127329597
-      Gun Movement-Sheet_5: -1290706640
-      Gun Movement-Sheet_6: -1929211737
+      Fist Animation 2_0: 1349453967
+      Fist Animation 2_1: 1460134003
+      Fist Animation 2_10: 419965241
+      Fist Animation 2_2: 2116481452
+      Fist Animation 2_3: 165055987
+      Fist Animation 2_4: 742449162
+      Fist Animation 2_5: -460023554
+      Fist Animation 2_6: 965619358
+      Fist Animation 2_7: -1632176504
+      Fist Animation 2_8: 89943058
+      Fist Animation 2_9: 50075661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

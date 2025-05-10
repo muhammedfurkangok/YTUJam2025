@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9913da30fb854aec8102d2aaef81fc91, type: 3}
+  m_Name: Fist
+  m_EditorClassIdentifier: 
+  weaponName: Fist
+  maxAmmo: 7
+  reloadAmmo: 7
+  fireRate: 0.35
+  reloadTime: 1.75
+  isAuto: 0
+  isNoNeedAmmo: 1
+  fireSound: 0
+  reloadSound: 0
+  muzzleFlashPrefab: {fileID: 4901675163842231320, guid: 1ceb0a7c678a41a4ea39792b1a6b94c4, type: 3}
+  bulletPrefab: {fileID: 6276026393114249676, guid: 23e2aa632cd381a42821f36e3bf66524, type: 3}

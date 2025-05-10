@@ -21,10 +21,15 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         StaminaText.text = $"{(int)(value * 100)}%";
     }
 
-    public void UpdateAmmoText(int currentAmmo, int maxAmmo)
+    public void UpdateAmmoText(int currentAmmo, int maxAmmo, bool infiniteAmmo = false)
     {
-        AmmoText.text = $"{currentAmmo}/{maxAmmo}";
+        if (!infiniteAmmo)
+        {
+            AmmoText.text = $"{currentAmmo}/{maxAmmo}";
+        }
+        else
+        {
+            AmmoText.text = $"";
+        }
     }
-
-  
 }
