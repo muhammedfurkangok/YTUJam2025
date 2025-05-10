@@ -1,82 +1,143 @@
-using System.Collections;
-using Runtime.Data.UnityObject;
-using Runtime.Enums;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Managers
+public enum SoundType
 {
-    public class SoundManager : SingletonMonoBehaviour<SoundManager>
+    GlockShoot,
+    GlockReload,
+    M4A1Shoot,
+    M4A1Reload,
+    Walk,
+    TiredBreath,
+    RobotDeath,
+    RobotAttack,
+    RobotWalk,
+    CrapDeath,
+    CrapAttack,
+    CrapWalk,
+    Equip,
+    DoorSlam,
+}
+
+[Serializable]
+public class GameSound
+{
+    public SoundType key;
+    public bool isMultiple;
+    public List<AudioClip> clips;
+    public AudioSource externalAudioSource;
+    public float volume = 1.0f;
+    public bool useRandomPitch = false;
+    public float minPitch = 1.0f;
+    public float maxPitch = 1.0f;
+    
+
+    public AudioClip GetRandomClip()
     {
-        [Header("Default Audio Source")] 
-        [SerializeField] private AudioSource audioSource;
+        if (clips == null || clips.Count == 0) return null;
+        return clips[UnityEngine.Random.Range(0, clips.Count)];
+    }
+}
 
-        [Header("Glissando Audio Source")] 
-        [SerializeField] private AudioSource glissandoAudioSource;
+public class AudioManager : MonoBehaviour
+{
+    [Header("References")] [SerializeField]
+    private AudioSource mainAudioSource;
+    public AudioSource mainMusicSource;
 
-        [Header("Random Pitch Audio Source")] 
-        [SerializeField] private AudioSource randomPitchAudioSource;
+    [SerializeField] private List<GameSound> gameSounds = new();
 
-        [Header("Sound's")] 
-        [SerializeField] private CD_GameSound COLLECTION;
+    public static AudioManager Instance;
 
-        [Header("Glissando Settings")] 
-        [SerializeField] private float glissandoPitchRange = 2f;
+    public void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
-        [SerializeField] private float glissandoDuration = 1f;
-        [SerializeField] private float glissandoDefaultPitch = 1f;
-        [SerializeField] private Coroutine glissandoCoroutine;
+    public void PlayOneShotSound(SoundType key)
+    {
+        var gameSound = gameSounds.Find(x => x.key == key);
+        if (gameSound == null) return;
 
-        public void PlaySound(GameSoundType soundType)
+        AudioClip clip = gameSound.isMultiple ? gameSound.GetRandomClip() : gameSound.clips[0];
+        if (clip == null) return;
+
+        float originalPitch = mainAudioSource.pitch;
+        if (gameSound.useRandomPitch)
         {
-            if (SettingsManager.Instance.isSoundActive)
-            {
-                foreach (var sound in COLLECTION.gameSoundData)
-                {
-                    if (soundType == sound.gameSoundType)
-                    {
-                        audioSource.volume = sound.volume;
-                        if (sound.hasRandomPitch)
-                        {
-                            randomPitchAudioSource.pitch = Random.Range(0.8f, 1.2f);
-                            randomPitchAudioSource.PlayOneShot(sound.audioClip);
-                            break;
-                        }
-                        else if (sound.hasGlissando)
-                        {
-                            if (glissandoCoroutine != null)
-                            {
-                                StopCoroutine(glissandoCoroutine);
-                            }
-
-                            glissandoCoroutine = StartCoroutine(PlayGlissando(sound.audioClip));
-                            break;
-                        }
-                        else
-                        {
-                            audioSource.PlayOneShot(sound.audioClip);
-                            break;
-                        }
-                    }
-                }
-            }
+            mainAudioSource.pitch = UnityEngine.Random.Range(gameSound.minPitch, gameSound.maxPitch);
         }
 
-        private IEnumerator PlayGlissando(AudioClip clip)
+        if (gameSound.externalAudioSource != null && !gameSound.externalAudioSource.isPlaying)
         {
-            float elapsedTime = 0f;
-            float initialPitch = glissandoAudioSource.pitch;
-
-            glissandoAudioSource.PlayOneShot(clip);
-
-            while (elapsedTime < glissandoDuration)
-            {
-                float t = elapsedTime / glissandoDuration;
-                glissandoAudioSource.pitch = Mathf.Lerp(initialPitch, initialPitch + glissandoPitchRange, t);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            glissandoAudioSource.pitch = glissandoDefaultPitch;
+            gameSound.externalAudioSource.PlayOneShot(clip, gameSound.volume);
         }
+        else
+        {
+            mainAudioSource.PlayOneShot(clip, gameSound.volume);
+        }
+
+        if (gameSound.useRandomPitch)
+        {
+            mainAudioSource.pitch = originalPitch;
+        }
+    }
+
+  private int lastPlayedIndex = -1;
+
+public void PlayOneShotSound(SoundType key, float volume)
+{
+    var gameSound = gameSounds.Find(x => x.key == key);
+    if (gameSound == null) return;
+
+    AudioClip clip = null;
+    if (gameSound.isMultiple)
+    {
+        int newIndex;
+        do
+        {
+            newIndex = UnityEngine.Random.Range(0, gameSound.clips.Count);
+        } while (newIndex == lastPlayedIndex && gameSound.clips.Count > 1);
+        lastPlayedIndex = newIndex;
+        clip = gameSound.clips[newIndex];
+    }
+    else
+    {
+        clip = gameSound.clips[0];
+    }
+
+    if (clip == null) return;
+
+    float originalPitch = mainAudioSource.pitch;
+    if (gameSound.useRandomPitch)
+    {
+        mainAudioSource.pitch = UnityEngine.Random.Range(gameSound.minPitch, gameSound.maxPitch);
+    }
+
+    if (gameSound.externalAudioSource != null)
+    {
+        if (gameSound.externalAudioSource.isPlaying) return;
+        gameSound.externalAudioSource.PlayOneShot(clip, volume);
+    }
+    else
+    {
+        mainAudioSource.PlayOneShot(clip, volume);
+    }
+
+    if (gameSound.useRandomPitch)
+    {
+        mainAudioSource.pitch = originalPitch;
+    }
+}
+    public GameSound GetGameSound(SoundType walk)
+    {
+        return gameSounds.Find(x => x.key == walk);
+    }
+    
+    public void PlayMainMusic()
+    {
+        mainMusicSource.Play();
     }
 }
