@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
     private int currentWeaponIndex;
     private WeaponBase activeWeapon;
     [SerializeField] private CinemachineCamera cinemachineCamera;
+
+    private void Start()
+    {
+        EquipWeapon(0);
+    }
 
     private void Update()
     {

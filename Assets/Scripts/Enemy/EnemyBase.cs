@@ -113,7 +113,7 @@ namespace Enemy
             SetAnimationSpeed(1);
         }
 
-        private void SetAnimationSpeed(float speed)
+        public void SetAnimationSpeed(float speed)
         {
             spriteDirectionalController.animator.SetFloat("speed", speed);
         }
