@@ -9,7 +9,7 @@ namespace Weapon
     {
         public WeaponBase[] weapons;
         private int currentWeaponIndex = 0;
-        private WeaponBase activeWeapon;
+        [SerializeField] private WeaponBase activeWeapon;
 
       
 
@@ -40,10 +40,10 @@ namespace Weapon
             if (activeWeapon != null)
             {
                 activeWeapon.gameObject.SetActive(false);
-                RectTransform prevImageRect = activeWeapon.weaponImage;
-                RectTransform prevIconRect = activeWeapon.weaponIcon;
-                prevImageRect.DOSizeDelta(activeWeapon.WeaponImageNormalSize, 0.5f);
-                prevIconRect.DOSizeDelta(activeWeapon.WeaponIconNormalSize, 0.5f);
+                // RectTransform prevImageRect = activeWeapon.weaponImage;
+                // RectTransform prevIconRect = activeWeapon.weaponIcon;
+                // prevImageRect.DOSizeDelta(activeWeapon.WeaponImageNormalSize, 0.5f);
+                // prevIconRect.DOSizeDelta(activeWeapon.WeaponIconNormalSize, 0.5f);
             }
 
             activeWeapon = weapons[index];
@@ -51,12 +51,12 @@ namespace Weapon
             UIManager.Instance.UpdateAmmoText(activeWeapon.currentAmmo, activeWeapon.maxAmmo);
             currentWeaponIndex = index;
 
-            RectTransform imageRect = activeWeapon.weaponImage;
-            RectTransform iconRect = activeWeapon.weaponIcon;
-            Vector2 selectedImageSize = activeWeapon.WeaponImageNormalSize * 1.5f;
-            Vector2 selectedIconSize = activeWeapon.WeaponIconNormalSize * 1.5f;
-            imageRect.DOSizeDelta(selectedImageSize, 0.5f);
-            iconRect.DOSizeDelta(selectedIconSize, 0.5f);
+            // RectTransform imageRect = activeWeapon.weaponImage;
+            // RectTransform iconRect = activeWeapon.weaponIcon;
+            // Vector2 selectedImageSize = activeWeapon.WeaponImageNormalSize * 1.5f;
+            // Vector2 selectedIconSize = activeWeapon.WeaponIconNormalSize * 1.5f;
+            // imageRect.DOSizeDelta(selectedImageSize, 0.5f);
+            // iconRect.DOSizeDelta(selectedIconSize, 0.5f);
 
             Debug.Log($"Silah Değiştirildi: {activeWeapon.weaponName}");
         }

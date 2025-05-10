@@ -16,7 +16,7 @@ namespace Weapon
             Camera baseCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
             baseCamera.DoShakeCamera(0.1f, 0.1f, 3, 90f);
             EnableLightFlash();
-            weaponUIAnimator.SetBool("Shoot", true);
+            // weaponUIAnimator.SetBool("Shoot", true);
             if (!isFiring)
             {
                 isFiring = true;
@@ -43,7 +43,7 @@ namespace Weapon
         {
             isFiring = false;
             weaponAnimator.ResetTrigger("Fire");
-            weaponUIAnimator.SetBool("Shoot", false);
+            // weaponUIAnimator.SetBool("Shoot", false);
         }
 
         public override void Reload()

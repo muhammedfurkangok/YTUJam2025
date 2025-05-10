@@ -25,11 +25,11 @@ namespace Weapon.Interfaces
         public GameObject lightFlash;
 
         public Animator weaponAnimator;
-        public Animator weaponUIAnimator;
-        public RectTransform weaponImage; 
-        public RectTransform weaponIcon;
-        public Vector2 WeaponImageNormalSize;
-        public Vector2 WeaponIconNormalSize;
+        // public Animator weaponUIAnimator;
+        // public RectTransform weaponImage; 
+        // public RectTransform weaponIcon;
+        // public Vector2 WeaponImageNormalSize;
+        // public Vector2 WeaponIconNormalSize;
         protected bool isReloading = false;
         protected float lastFireTime = 0f;
 

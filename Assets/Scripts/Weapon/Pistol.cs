@@ -16,7 +16,6 @@ namespace Weapon
             Camera baseCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
             baseCamera.DoShakeCamera(0.2f, 0.3f, 10, 90f);
             EnableLightFlash();
-            weaponUIAnimator.SetBool("Shoot", true);
             weaponAnimator.SetTrigger("Fire");
             AudioManager.Instance.PlayOneShotSound(SoundType.GlockShoot);
             UIManager.Instance.UpdateAmmoText(currentAmmo, maxAmmo);
@@ -32,7 +31,6 @@ namespace Weapon
         {
             if (isReloading || maxAmmo <= 0 || currentAmmo == reloadAmmo) return;
             isReloading = true;
-            Debug.Log($"{weaponName} Yeniden Dolduruluyor...");
             AudioManager.Instance.PlayOneShotSound(SoundType.GlockReload);
             weaponAnimator.SetTrigger("Reload");
             Invoke(nameof(FinishReload), reloadTime);
@@ -40,7 +38,7 @@ namespace Weapon
 
         public override void ResetFiringState()
         {
-            weaponUIAnimator.SetBool("Shoot", false);
+            // weaponUIAnimator.SetBool("Shoot", false);
         }
 
         private void FinishReload()
@@ -50,7 +48,6 @@ namespace Weapon
             currentAmmo = ammoToReload;
             UIManager.Instance.UpdateAmmoText(currentAmmo, maxAmmo);
             isReloading = false;
-            Debug.Log($"{weaponName} Dolduruldu!");
         }
     }
 }

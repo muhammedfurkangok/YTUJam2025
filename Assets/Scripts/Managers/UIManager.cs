@@ -6,11 +6,10 @@ using Utilities;
 public class UIManager : SingletonMonoBehaviour<UIManager>
 {
     public Image HealthBar;
-    public TextMeshProUGUI HealthText;
     public Image StaminaBar;
+    public TextMeshProUGUI HealthText;
     public TextMeshProUGUI StaminaText;
     public TextMeshProUGUI AmmoText;
-    public GameObject ammoPanel;
 
     public void UpdateHealthBar(float value)
     {
