@@ -14,10 +14,13 @@ public class Card : MonoBehaviour
     [Header("Reveal Settings")] public float preRevealPause = 0.2f;
     public float slowRevealDuration = 1.5f;
     public Ease revealEase = Ease.InOutElastic;
-    public RawImage allInOneMaterial;
+    public Image allInOneMaterial;
 
 
-    [Header("Card Setttings")] public TextMeshProUGUI cardHeader;
+    [Header("Card Setttings")] 
+    public Image cardFront;
+    public Image cardBack;
+    public TextMeshProUGUI cardHeader;
     public Image cardImage;
     public TextMeshProUGUI cardDescription;
     public CanvasGroup canvasGroup;
@@ -28,6 +31,8 @@ public class Card : MonoBehaviour
         cardHeader.text = cardData.CardName;
         cardImage.sprite = cardData.CardImage;
         cardDescription.text = cardData.CardDescription;
+        cardFront.sprite = cardData.CardFront;
+        cardBack.sprite = cardData.CardBack;
     }
 
     public void RevealCard()

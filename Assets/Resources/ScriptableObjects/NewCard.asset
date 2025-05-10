@@ -15,4 +15,6 @@ MonoBehaviour:
   cardData:
   - CardName: Welcome Life  <shake><color=red>Again!</color></shake>
     CardImage: {fileID: -7053939661997144990, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+    CardFront: {fileID: 1611676444, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
+    CardBack: {fileID: 424643307, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: YOUR WOLD IS UPSIRDE DOWN

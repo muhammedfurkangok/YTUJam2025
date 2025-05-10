@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   weaponName: Rifle
-  maxAmmo: 0
-  reloadAmmo: 7
+  maxAmmo: 90
+  reloadAmmo: 30
   fireRate: 0.35
   reloadTime: 1.75
-  isAuto: 0
+  isAuto: 1
+  isNoNeedAmmo: 0
   fireSound: 0
   reloadSound: 0
   muzzleFlashPrefab: {fileID: 4901675163842231320, guid: 1ceb0a7c678a41a4ea39792b1a6b94c4, type: 3}
