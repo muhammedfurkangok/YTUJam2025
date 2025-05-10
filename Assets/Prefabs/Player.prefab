@@ -664,10 +664,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7333066565388037560}
   - component: {fileID: 6273650150684766086}
-  - component: {fileID: 7164804706511330451}
   - component: {fileID: 3188466067058095840}
+  - component: {fileID: 5201627856551477443}
   m_Layer: 6
-  m_Name: Hand
+  m_Name: Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,7 +682,7 @@ Transform:
   m_GameObject: {fileID: 6363017478344044927}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.301, z: 0}
+  m_LocalPosition: {x: -0.29, y: -0.301, z: 2.03}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -743,22 +743,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7164804706511330451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6363017478344044927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ada32128b0b490e96c8b62c54755825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  firePoint: {fileID: 1578177319332977491}
-  refBullet: {fileID: 1578177319332977491}
-  weaponAnimator: {fileID: 3188466067058095840}
 --- !u!95 &3188466067058095840
 Animator:
   serializedVersion: 7
@@ -781,6 +765,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5201627856551477443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363017478344044927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306ace9090924a44a9eedf2778e4566a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ea5f8a656c49f82488289fc0d3f5dd46, type: 2}
+  firePoint: {fileID: 1578177319332977491}
+  refBullet: {fileID: 1578177319332977491}
+  weaponAnimator: {fileID: 3188466067058095840}
 --- !u!1 &6371640635813120251
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,8 +811,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7333066565388037560}
-  - {fileID: 7050592072022095258}
   - {fileID: 4499286987230731692}
+  - {fileID: 7050592072022095258}
   m_Father: {fileID: 4622424027547478449}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7884809755460096937
@@ -901,7 +901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
+  - {fileID: 5201627856551477443}
   - {fileID: 8337841644089562283}
+  - {fileID: 283118234309509194}
 --- !u!1001 &5439031814573548206
 PrefabInstance:
   m_ObjectHideFlags: 0

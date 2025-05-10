@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 39557f6e43a3f4a40b7a3e5e8cd862d5
+guid: abf29bcb39f7ae3419cadad5d247fcd1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gun Reload-Sheet_0
+      name: Gun Reload (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7cb75cb0ce858d47814561a434cf500
-      internalID: 1000564580
+      spriteID: 311f1edfe5ee016458dc8bc4ffb083b3
+      internalID: -1900452561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_1
+      name: Gun Reload (1)_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 300
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29b0f65f4facda148911a1c19be8d3e3
-      internalID: -576644929
+      spriteID: d9bc0f4e338ee024b8a83e241bd1b73e
+      internalID: -171906428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_2
+      name: Gun Reload (1)_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 600
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75175ae1c5401094c8766682c0b000d5
-      internalID: -1020755945
+      spriteID: e38194eb5a9ecdd4694cf915ceaa98b3
+      internalID: 1319355537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_3
+      name: Gun Reload (1)_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 900
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef47acf61edc5094fb741758589a1871
-      internalID: 2084638097
+      spriteID: d28728236be6f8944af1a05fa619a7a4
+      internalID: 230615937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_4
+      name: Gun Reload (1)_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 1200
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8368e9d5365d65a48a6f757c17d762ce
-      internalID: -1982991462
+      spriteID: e45ea9ab321e8174696048cf462fb3de
+      internalID: -223888641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_5
+      name: Gun Reload (1)_5
       rect:
         serializedVersion: 2
-        x: 180
+        x: 1500
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 425e87c5089cc6948ba6054cecdb06e0
-      internalID: -182515198
+      spriteID: 5a25e14dbdcacad4892dd200391274cb
+      internalID: -621908495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_6
+      name: Gun Reload (1)_6
       rect:
         serializedVersion: 2
-        x: 216
+        x: 1800
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a424a4894cedba41be9af60558dc7dc
-      internalID: -1151729238
+      spriteID: 3026072d2f9a55349a2a6eaeda58de52
+      internalID: 1837470645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_7
+      name: Gun Reload (1)_7
       rect:
         serializedVersion: 2
-        x: 252
+        x: 2100
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99199d46000628b419bf896d20c82dd1
-      internalID: -2141138606
+      spriteID: 2b9b7ef8df365c1449b3e7066111f3a3
+      internalID: 1824606597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_8
+      name: Gun Reload (1)_8
       rect:
         serializedVersion: 2
-        x: 288
+        x: 2400
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 001288862d163124480f76411117ad93
-      internalID: -431614649
+      spriteID: 2978fbd62a253e4418a2190fe79a893a
+      internalID: -1821510549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_9
+      name: Gun Reload (1)_9
       rect:
         serializedVersion: 2
-        x: 324
+        x: 2700
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d814cabf87eb7a440922d82deb35ecd5
-      internalID: -137569769
+      spriteID: 990f637225651ec44a28dc25cf18c71f
+      internalID: -640170305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_10
+      name: Gun Reload (1)_10
       rect:
         serializedVersion: 2
-        x: 360
+        x: 3000
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 537c90f3c6c367248a09d2379855f281
-      internalID: -1006752684
+      spriteID: 6dcf60a16fd4b5c44a5269736a8e74d9
+      internalID: 1978733338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_11
+      name: Gun Reload (1)_11
       rect:
         serializedVersion: 2
-        x: 396
+        x: 3300
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,20 +354,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abf4a4237496dd2409bbe9daf5155df9
-      internalID: 1525779954
+      spriteID: a8d08e0223bec274fae18f6d52710a19
+      internalID: -2014806282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_12
+      name: Gun Reload (1)_12
       rect:
         serializedVersion: 2
-        x: 432
+        x: 3600
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +376,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 981080828330f004eb2cf0031b225f7e
-      internalID: -1776171302
+      spriteID: a146be3ac437f444c980e7f35c5ee863
+      internalID: -361830249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_13
+      name: Gun Reload (1)_13
       rect:
         serializedVersion: 2
-        x: 468
+        x: 3900
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,20 +398,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 182821ace90162c45adae22de40568f4
-      internalID: 716648292
+      spriteID: 8b118fbc29790464e80027e45bd25022
+      internalID: -1571144727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun Reload-Sheet_14
+      name: Gun Reload (1)_14
       rect:
         serializedVersion: 2
-        x: 504
+        x: 4200
         y: 0
-        width: 36
-        height: 36
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,140 +420,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e177f8173ce7ae5448a6c8a061da8221
-      internalID: 1032251223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun Reload-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97a5f03cd8e50b14f97e4099a1c5375f
-      internalID: -101234639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun Reload-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 060f466d8257b9040b3ab464b78bc141
-      internalID: -1652948029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun Reload-Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93907b6d5bd948f418c174b46dba5c0d
-      internalID: -1065665653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun Reload-Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1d2cac890ca7194aae2c96519d46614
-      internalID: 880911881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun Reload-Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02d7ce1ad81298d428e7a361dd059437
-      internalID: -1897388398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun Reload-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 876972d39d302034db5605be68ec2d12
-      internalID: -1013671498
+      spriteID: 9e0ba764d726c69498a0aa197628c2c0
+      internalID: -1023602326
       vertices: []
       indices: 
       edges: []
@@ -562,7 +430,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 947b198bf4de0f942a1a59b220f1a8f5
     internalID: 0
     vertices: []
     indices: 
@@ -572,27 +440,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gun Reload-Sheet_0: 1000564580
-      Gun Reload-Sheet_1: -576644929
-      Gun Reload-Sheet_10: -1006752684
-      Gun Reload-Sheet_11: 1525779954
-      Gun Reload-Sheet_12: -1776171302
-      Gun Reload-Sheet_13: 716648292
-      Gun Reload-Sheet_14: 1032251223
-      Gun Reload-Sheet_15: -101234639
-      Gun Reload-Sheet_16: -1652948029
-      Gun Reload-Sheet_17: -1065665653
-      Gun Reload-Sheet_18: 880911881
-      Gun Reload-Sheet_19: -1897388398
-      Gun Reload-Sheet_2: -1020755945
-      Gun Reload-Sheet_20: -1013671498
-      Gun Reload-Sheet_3: 2084638097
-      Gun Reload-Sheet_4: -1982991462
-      Gun Reload-Sheet_5: -182515198
-      Gun Reload-Sheet_6: -1151729238
-      Gun Reload-Sheet_7: -2141138606
-      Gun Reload-Sheet_8: -431614649
-      Gun Reload-Sheet_9: -137569769
+      Gun Reload (1)_0: -1900452561
+      Gun Reload (1)_1: -171906428
+      Gun Reload (1)_10: 1978733338
+      Gun Reload (1)_11: -2014806282
+      Gun Reload (1)_12: -361830249
+      Gun Reload (1)_13: -1571144727
+      Gun Reload (1)_14: -1023602326
+      Gun Reload (1)_2: 1319355537
+      Gun Reload (1)_3: 230615937
+      Gun Reload (1)_4: -223888641
+      Gun Reload (1)_5: -621908495
+      Gun Reload (1)_6: 1837470645
+      Gun Reload (1)_7: 1824606597
+      Gun Reload (1)_8: -1821510549
+      Gun Reload (1)_9: -640170305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

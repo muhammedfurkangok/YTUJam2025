@@ -31,8 +31,8 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
     {
         if (isReloading || currentAmmo <= 0 || Time.time < lastFireTime + data.fireRate)
             return;
-
-        currentAmmo--;
+        if(!data.isNoNeedAmmo)
+         currentAmmo--;
         lastFireTime = Time.time;
 
         ShowMuzzleFlash();
@@ -41,7 +41,7 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         Bullet bullet = Instantiate(data.bulletPrefab, firePoint.position, refBullet.rotation);
         bullet.Initialize(firePoint.forward);
 
-        UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo);
+        UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo,data.isNoNeedAmmo);
 
         if (currentAmmo == 0)
             Reload();

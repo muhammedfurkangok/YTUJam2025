@@ -10,6 +10,7 @@ public class WeaponData : ScriptableObject
     public float fireRate;
     public float reloadTime;
     public bool isAuto;
+    public bool isNoNeedAmmo;
     public SoundType fireSound;
     public SoundType reloadSound;
     public GameObject muzzleFlashPrefab;

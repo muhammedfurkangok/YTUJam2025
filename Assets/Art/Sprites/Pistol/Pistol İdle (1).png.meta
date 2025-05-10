@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e76be5f21e1a894086e337f914eccda
+guid: 8046da6420550ad4bba82b0283475ffc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_0
+      name: "Pistol \u0130dle (1)_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6c8c6480b9c544479b520b6f758df39
-      internalID: 1320622261
+      spriteID: a0bf2c5e41ea4774190102a87552a51e
+      internalID: -798119404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_1
+      name: "Pistol \u0130dle (1)_1"
       rect:
         serializedVersion: 2
-        x: 64
+        x: 300
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 184a6b73fcb73b74aa6dee53a5d380c2
-      internalID: 1328322538
+      spriteID: 403afd6fcc360384fb01e90a745123f5
+      internalID: 686481212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_2
+      name: "Pistol \u0130dle (1)_2"
       rect:
         serializedVersion: 2
-        x: 128
+        x: 600
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e737d1b9411473148ba50bb4ddfb17fa
-      internalID: 1457683991
+      spriteID: c9e94aa13f13fbb49b2fe9af965827d1
+      internalID: 1901258443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_3
+      name: "Pistol \u0130dle (1)_3"
       rect:
         serializedVersion: 2
-        x: 192
+        x: 900
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9fb4db0f2a60c741b57e8be5b27163d
-      internalID: -47176916
+      spriteID: 2d74090a30bfc6a4b8f8f358934e7c00
+      internalID: 1909535551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_4
+      name: "Pistol \u0130dle (1)_4"
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1200
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85688b558a551204fa581107a35f4cce
-      internalID: -2116933495
+      spriteID: 39835b05f4c9bf44b9793368e3f4f5ea
+      internalID: -557040039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_5
+      name: "Pistol \u0130dle (1)_5"
       rect:
         serializedVersion: 2
-        x: 320
+        x: 1500
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac98fd13c0263347a13746db284d52c
-      internalID: -268937768
+      spriteID: 70426d08530e2ec4ca9be8ef25e1bd35
+      internalID: -1206294496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_6
+      name: "Pistol \u0130dle (1)_6"
       rect:
         serializedVersion: 2
-        x: 384
+        x: 1800
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939d794f49cdf7745b9c1ab8ccf9091b
-      internalID: -1152891740
+      spriteID: 00ac7cbcfefbbb047b97ff9542a1216c
+      internalID: 1608069920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_7
+      name: "Pistol \u0130dle (1)_7"
       rect:
         serializedVersion: 2
-        x: 448
+        x: 2100
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ebd5a8cfdaae004584ffef0141ec030
-      internalID: 1361668892
+      spriteID: 00105f56d8bd8b8479e3067fc5ffe201
+      internalID: 1849643386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_8
+      name: "Pistol \u0130dle (1)_8"
       rect:
         serializedVersion: 2
-        x: 512
+        x: 2400
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b780f8945810dd4285ca94a0bc56881
-      internalID: -49491142
+      spriteID: b8481ee7c1073ad458d345f06103ef78
+      internalID: 1253962716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_9
+      name: "Pistol \u0130dle (1)_9"
       rect:
         serializedVersion: 2
-        x: 576
+        x: 2700
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca5e7bfddae63e24097a96ddf6688eb5
-      internalID: 907169670
+      spriteID: 486d141ef937ade4dae05e5a999b545b
+      internalID: -1675361917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol 2d-Sheet_10
+      name: "Pistol \u0130dle (1)_10"
       rect:
         serializedVersion: 2
-        x: 640
+        x: 3000
         y: 0
-        width: 64
-        height: 48
+        width: 300
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,8 +332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4da7ac13258beeb40b8532f1b232d2b5
-      internalID: 434256509
+      spriteID: 5bac5fa2c0c3c604dad4742be8e2df52
+      internalID: 2054534058
       vertices: []
       indices: 
       edges: []
@@ -342,7 +342,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 855c5e6cbe4869c45a89242e6f6ed970
+    spriteID: 743018cd9143a6c4d92dc7021e6ace9f
     internalID: 0
     vertices: []
     indices: 
@@ -352,17 +352,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pistol 2d-Sheet_0: 1320622261
-      Pistol 2d-Sheet_1: 1328322538
-      Pistol 2d-Sheet_10: 434256509
-      Pistol 2d-Sheet_2: 1457683991
-      Pistol 2d-Sheet_3: -47176916
-      Pistol 2d-Sheet_4: -2116933495
-      Pistol 2d-Sheet_5: -268937768
-      Pistol 2d-Sheet_6: -1152891740
-      Pistol 2d-Sheet_7: 1361668892
-      Pistol 2d-Sheet_8: -49491142
-      Pistol 2d-Sheet_9: 907169670
+      "Pistol \u0130dle (1)_0": -798119404
+      "Pistol \u0130dle (1)_1": 686481212
+      "Pistol \u0130dle (1)_10": 2054534058
+      "Pistol \u0130dle (1)_2": 1901258443
+      "Pistol \u0130dle (1)_3": 1909535551
+      "Pistol \u0130dle (1)_4": -557040039
+      "Pistol \u0130dle (1)_5": -1206294496
+      "Pistol \u0130dle (1)_6": 1608069920
+      "Pistol \u0130dle (1)_7": 1849643386
+      "Pistol \u0130dle (1)_8": 1253962716
+      "Pistol \u0130dle (1)_9": -1675361917
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

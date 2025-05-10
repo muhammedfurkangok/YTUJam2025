@@ -22,6 +22,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) EquipWeapon(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) EquipWeapon(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) EquipWeapon(2);
     }
 
     public void EquipWeapon(int index)
@@ -34,7 +35,7 @@ public class WeaponManager : MonoBehaviour
         activeWeapon.gameObject.SetActive(true);
         currentWeaponIndex = index;
 
-        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo);
+        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo, activeWeapon.data.isNoNeedAmmo);
         Debug.Log($"[WeaponManager] Equipped: {activeWeapon.data.weaponName}");
     }
 }
