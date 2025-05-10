@@ -18576,6 +18576,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doTweenPath: {fileID: 1391817780}
   animator: {fileID: 1391817777}
+  stabEffectDuration: 0.5
+  enjectEffectDuration: 1
+  endEffectDuration: 1
 --- !u!1001 &1395834600
 PrefabInstance:
   m_ObjectHideFlags: 0
