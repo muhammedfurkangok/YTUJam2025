@@ -4,8 +4,7 @@ using Weapon;
 
 public abstract class WeaponBase : MonoBehaviour, IWeapon
 {
-    [Header("Setup")]
-    public WeaponData data;
+    [Header("Setup")] public WeaponData data;
     public Transform firePoint;
     public Transform refBullet;
     public Animator weaponAnimator;
@@ -23,6 +22,7 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         if (data.muzzleFlashPrefab != null)
         {
             lightFlashInstance = Instantiate(data.muzzleFlashPrefab, firePoint);
+            lightFlashInstance.transform.SetParent(firePoint);
             lightFlashInstance.SetActive(false);
         }
     }
@@ -31,8 +31,8 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
     {
         if (isReloading || currentAmmo <= 0 || Time.time < lastFireTime + data.fireRate)
             return;
-        if(!data.isNoNeedAmmo)
-         currentAmmo--;
+        if (!data.isNoNeedAmmo)
+            currentAmmo--;
         lastFireTime = Time.time;
 
         ShowMuzzleFlash();
@@ -41,7 +41,7 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         Bullet bullet = Instantiate(data.bulletPrefab, firePoint.position, refBullet.rotation);
         bullet.Initialize(firePoint.forward);
 
-        UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo,data.isNoNeedAmmo);
+        UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo, data.isNoNeedAmmo);
 
         if (currentAmmo == 0)
             Reload();

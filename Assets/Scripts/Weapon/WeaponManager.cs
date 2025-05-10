@@ -1,11 +1,14 @@
+using DG.Tweening;
+using Unity.Cinemachine;
 using UnityEngine;
 using Weapon;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
 {
     public WeaponBase[] weapons;
     private int currentWeaponIndex;
     private WeaponBase activeWeapon;
+    [SerializeField] private CinemachineCamera cinemachineCamera;
 
     private void Update()
     {
@@ -37,5 +40,10 @@ public class WeaponManager : MonoBehaviour
 
         UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo, activeWeapon.data.isNoNeedAmmo);
         Debug.Log($"[WeaponManager] Equipped: {activeWeapon.data.weaponName}");
+    }
+
+    public void ShakeCamera()
+    {
+         cinemachineCamera.transform.DOShakePosition( 0.5f, 0.2f, 10, 90f);
     }
 }
