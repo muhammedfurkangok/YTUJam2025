@@ -25,6 +25,8 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
             lightFlashInstance.transform.SetParent(firePoint);
             lightFlashInstance.SetActive(false);
         }
+        
+        
     }
 
     public virtual void Fire()
