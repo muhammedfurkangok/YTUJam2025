@@ -10,18 +10,15 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public Image StaminaBar;
     public TextMeshProUGUI StaminaText;
     public TextMeshProUGUI AmmoText;
-    public GameObject[] bulletDecals;
     public GameObject ammoPanel;
 
     public void UpdateHealthBar(float value)
     {
-        HealthBar.fillAmount = value;
         HealthText.text = $"{value * 100}%";
     }
 
     public void UpdateStaminaBar(float value)
     {
-        StaminaBar.fillAmount = value;
         StaminaText.text = $"{(int)(value * 100)}%";
     }
 
@@ -30,8 +27,5 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         AmmoText.text = $"{currentAmmo}/{maxAmmo}";
     }
 
-    public GameObject GetRandomBulletDecalPrefab()
-    {
-        return bulletDecals[Random.Range(0, bulletDecals.Length)];
-    }
+  
 }
