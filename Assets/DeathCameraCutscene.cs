@@ -28,7 +28,8 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
     private void Update()
     {
         if (Input.GetKey(KeyCode.E)) PlayerStatsManager.Instance.DecreaseHealth(100);
-        if (Input.GetKey(KeyCode.T)) ResetCamera(); 
+        if (Input.GetKey(KeyCode.T))
+            StartCoroutine(ResetCamera());
     }
     //oyuncu üstündeki kamerayı kımıldatıyor.
     public void DieAnim()

@@ -10,14 +10,13 @@ namespace Player
         }
         public void OnDie()
         {
-            //CutSceneCameraController.Instance.DisableObjects();
             DeathCameraCutscene.Instance.DieAnim();
         }
         
         public void GetVaccinated()
         {
             //play animation
-            //CutSceneController.CutSceneStart
+            CutSceneController.Instance.CutSceneStart();
         }
         public void OnRespawn()
         {
