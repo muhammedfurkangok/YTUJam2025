@@ -1,16 +1,16 @@
+using System;
 using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int damage = 50;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+           PlayerStatsManager.Instance.DecreaseHealth(damage);
+           Destroy(gameObject);
+        }
     }
 }

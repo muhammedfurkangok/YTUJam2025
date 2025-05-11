@@ -1223,7 +1223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8508918321220266886, guid: a6ef0aad88a85804a8086284bc68adb0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8610920091710940870, guid: a6ef0aad88a85804a8086284bc68adb0, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3913,7 +3913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1649103483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4760,6 +4760,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5635422021282220643, guid: fe640c2294b756547a1be295a4206acd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5783647775743723856, guid: fe640c2294b756547a1be295a4206acd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4794,6 +4798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 619958442021338624, guid: 31b399316e9ba6742833f9f8d858fb51, type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1282353317084726319, guid: 31b399316e9ba6742833f9f8d858fb51, type: 3}
       propertyPath: m_Sprite
       value: 
