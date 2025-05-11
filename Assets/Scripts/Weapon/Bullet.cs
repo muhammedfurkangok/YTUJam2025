@@ -40,6 +40,7 @@ namespace Weapon
                 floatingText.Value = "HEADSHOT!!!";
 
                 MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f);
+                AudioManager.Instance.PlayOneShotSound(SoundType.HeadExplosion);
             }
             else if (other.CompareTag("Enemy")) 
             {

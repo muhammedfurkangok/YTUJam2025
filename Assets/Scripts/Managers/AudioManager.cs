@@ -11,6 +11,10 @@ public enum SoundType
     FistHit = 5,
     Walk = 4,
     TiredBreath = 6,
+    PistolShoot = 7,
+    PistolReload = 8,
+    ItemChange = 9,
+    HeadExplosion = 10,
 }
 
 [Serializable]

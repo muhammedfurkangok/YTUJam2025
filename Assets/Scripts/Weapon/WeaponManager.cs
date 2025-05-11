@@ -24,7 +24,6 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
     }
 
 
-
     private void Update()
     {
         HandleWeaponSwitch();
@@ -42,6 +41,7 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
 
         if (!isBersekMode)
         {
+           
             if (Input.GetKeyDown(KeyCode.Alpha2)) EquipWeapon(1);
             if (Input.GetKeyDown(KeyCode.Alpha3)) EquipWeapon(2);
         }
@@ -57,7 +57,9 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
         activeWeapon.gameObject.SetActive(true);
         currentWeaponIndex = index;
 
-        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo, activeWeapon.data.isNoNeedAmmo);
+        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo,
+            activeWeapon.data.isNoNeedAmmo);
+        AudioManager.Instance.PlayOneShotSound(SoundType.ItemChange);
         Debug.Log($"[WeaponManager] Equipped: {activeWeapon.data.weaponName}");
     }
 
@@ -70,13 +72,13 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
     {
         isBersekMode = true;
     }
-    
+
     private void RestartAllStats()
     {
         isBersekMode = false;
         isOnlyHsMode = false;
     }
-    
+
     private void OnlyHeadShotMode()
     {
         isOnlyHsMode = true;

@@ -8,6 +8,18 @@ public class Pistol : WeaponBase
     {
         base.PlayFireEffects();
         // Rifle özel sarsıntısı
-        Camera.main?.DoShakeCamera(0.15f, 0.2f, 8, 90f);
+        WeaponManager.Instance.ShakeCamera();
+    }
+
+    public override void Fire()
+    {
+        base.Fire();
+        AudioManager.Instance.PlayOneShotSound(SoundType.PistolShoot);
+    }
+    
+    public override void Reload()
+    {
+        base.Reload();
+        AudioManager.Instance.PlayOneShotSound(SoundType.PistolReload);
     }
 }

@@ -7,6 +7,7 @@ public class Fist : WeaponBase
     {
         base.PlayFireEffects();
         // Rifle özel sarsıntısı
-        Camera.main?.DoShakeCamera(0.15f, 0.2f, 8, 90f);
+        WeaponManager.Instance.ShakeCamera();
+        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
     }
 }
