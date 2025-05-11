@@ -8,11 +8,13 @@ namespace Player
         public void OnDie()
         {
             //die anim
+            //DeathCameraCutscene.DieAnim
         }
         
         public void GetVaccinated()
         {
             //play animation
+            //CutSceneController.CutSceneStart
         }
         public void OnRespawn()
         {
