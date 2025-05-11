@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CutSceneController : MonoBehaviour
+public class CutSceneController : SingletonMonoBehaviour<CutSceneController>
 {
     [SerializeField] CutSceneCanvasController canvasCut;
     [SerializeField] CutSceneCameraController cameraCut;
