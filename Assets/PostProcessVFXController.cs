@@ -78,9 +78,21 @@ public class PostProcessVFXController : MonoBehaviour
         ca.intensity.value = defaultChromaticAberration;
 
     }
+    private void ResetPostProcess()
+    {
+        if (!volume.sharedProfile.TryGet(out Bloom bloom)) return;
+
+        bloom.intensity.value = defaultBloomIntensity;
+        bloom.scatter.value = defaultBloomScatter;
+        bloom.threshold.value = defaultBloomThreshold;
+
+        if (!volume.sharedProfile.TryGet(out ChromaticAberration ca)) return;
+
+        ca.intensity.value = defaultChromaticAberration;
+    }
 
     private void OnDisable()
     {
-        ResetPostProcessToNormal();
+        ResetPostProcess();
     }
 }
