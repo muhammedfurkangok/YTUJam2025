@@ -95,4 +95,6 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
     }
 
     public bool IsAuto() => data.isAuto;
+    
+   
 }

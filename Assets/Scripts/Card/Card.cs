@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Runtime.System.InputSystem;
 
 public class Card : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class Card : MonoBehaviour
 
     private CardData currentData;
 
+    private void Start()
+    {
+    }
+
     public void SetCardData(CardData cardData)
     {
         currentData = cardData;
@@ -43,7 +48,7 @@ public class Card : MonoBehaviour
     {
         cardTransform.localEulerAngles = new Vector3(0, 180, 0);
         canvasGroup.alpha = 1;
-        cardTransform.DOShakeRotation(
+        cardTransform.DOShakePosition(
             duration: shakeDuration,
             strength: new Vector3(shakeStrength, shakeStrength, 0),
             vibrato: shakeVibrato,
@@ -63,14 +68,13 @@ public class Card : MonoBehaviour
 
                 revealSequence.OnComplete(() =>
                 {
-                    DOVirtual.Float(0, 1, slowRevealDuration,
-                            (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); })
-                        .OnComplete(() =>
+                    DOVirtual.Float(0, 1, slowRevealDuration, (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); }).OnComplete(() =>
                         {
                             DOVirtual.DelayedCall(0.5f, () =>
                             {
                                 onRevealComplete?.Invoke();
                                 HideCard();
+                               
                             });
                         });
                 });
@@ -90,6 +94,10 @@ public class Card : MonoBehaviour
                         canvasGroup.DOFade(0, slowRevealDuration).OnComplete(() =>
                         {
                             gameObject.SetActive(false);
+                            CutSceneCameraController.Instance.ActivateObjects();
+                            PostProcessVFXController.Instance.ResetPostProcessToNormal();
+                            InputManager.Instance.blockLookInput = false;
+                            InputManager.Instance.blockMovementInput = false;
                         });
                     });
             });

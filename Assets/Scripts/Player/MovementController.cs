@@ -43,6 +43,8 @@ namespace Player
 
         void MoveCharacter()
         {
+            if (InputManager.Instance.blockMovementInput) return;
+            
             Vector2 input = InputManager.Instance.GetMovementInput();
             Vector3 forward = virtualCamera.transform.forward;
             Vector3 right = virtualCamera.transform.right;

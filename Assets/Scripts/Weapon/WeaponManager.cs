@@ -52,4 +52,6 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
     {
          cinemachineCamera.transform.DOShakePosition( 0.5f, 0.2f, 10, 90f);
     }
+    
+   
 }

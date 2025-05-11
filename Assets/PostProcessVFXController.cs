@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 using Utilities;
 using static Unity.Collections.AllocatorManager;
 
-public class PostProcessVFXController : MonoBehaviour
+public class PostProcessVFXController : SingletonMonoBehaviour<PostProcessVFXController>
 {
     private Volume volume;
 
@@ -59,7 +59,13 @@ public class PostProcessVFXController : MonoBehaviour
         // Animate to strong bloom effect
         DOTween.To(() => bloom.intensity.value, x => bloom.intensity.value = x, 100f, duration*4f);
         DOTween.To(() => bloom.scatter.value, x => bloom.scatter.value = x, 1f, duration);
-        DOTween.To(() => bloom.threshold.value, x => bloom.threshold.value = x, 0f, duration);
+        DOTween.To(() => bloom.threshold.value, x => bloom.threshold.value = x, 0f, duration).OnComplete( () =>
+        {
+           CardManager.Instance.RandomCard();
+           
+        });
+        
+        
     }
 
     /// <summary>

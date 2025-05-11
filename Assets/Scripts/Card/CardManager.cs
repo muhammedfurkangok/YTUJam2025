@@ -6,10 +6,6 @@ public class CardManager : SingletonMonoBehaviour<CardManager>
     public Card sceneCard;
     public Card_SO cardSO;
 
-    private void Start()
-    {
-        RandomCard();
-    }
 
     public void RandomCard()
     {

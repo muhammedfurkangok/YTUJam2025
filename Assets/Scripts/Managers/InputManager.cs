@@ -11,6 +11,7 @@ namespace Runtime.System.InputSystem
 
         public Vector2 GetMovementInput()
         {
+            
             float moveX = Input.GetAxis("Horizontal"); // A, D
             float moveZ = Input.GetAxis("Vertical"); // W, S
             return new Vector2(moveX, moveZ);
