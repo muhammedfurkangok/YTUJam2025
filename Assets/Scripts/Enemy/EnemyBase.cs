@@ -59,6 +59,7 @@ namespace Enemy
         {
             isDead = true;
             agent.enabled = false;
+            ScoreManager.Instance.AddScore(10);
             foreach (var component in GetComponentsInChildren<Collider>())
             { component.enabled = false; }
 

@@ -14,11 +14,12 @@ public class SuicideManager : SingletonMonoBehaviour<SuicideManager>
     public void Suicide()
     {
         visual.enabled = true;
-        foreach(var obj in objectsToClose)
+        foreach (var obj in objectsToClose)
         {
             obj.SetActive(false);
         }
-        animator.SetTrigger("KYS");
-    }
 
+        animator.SetTrigger("KYS");
+        AudioManager.Instance.PlayOneShotSound(SoundType.ShotgunShoot);
+    }
 }
