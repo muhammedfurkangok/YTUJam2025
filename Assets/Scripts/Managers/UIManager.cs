@@ -13,12 +13,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     public void UpdateHealthBar(float value)
     {
-        HealthText.text = $"{value * 100}%";
+        HealthBar.fillAmount = value;
+        HealthText.text = $"{value * 100}";
     }
 
     public void UpdateStaminaBar(float value)
     {
-        StaminaText.text = $"{(int)(value * 100)}%";
+        StaminaBar.fillAmount = value;
+        StaminaText.text = $"{(int)(value * 100)}";
     }
 
     public void UpdateAmmoText(int currentAmmo, int maxAmmo, bool infiniteAmmo = false)

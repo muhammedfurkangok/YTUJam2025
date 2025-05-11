@@ -13,16 +13,16 @@ namespace Player
         public float jumpSpeed = 8f;
         public float gravity = 9.8f;
         [SerializeField, Child] private CinemachineCamera virtualCamera;
-        // public Animator characterAnimator;
+        public Animator characterAnimator;
 
-        // public GameObject speedEffect;
+        public GameObject speedEffect;
 
         private CharacterController controller;
         private Vector3 moveDirection;
 
         private float verticalVelocity;
 
-        // private bool isRunning;
+        private bool isRunning;
         private bool isBoosting;
         private bool finishedBoost;
         private Coroutine boostCoroutine;
@@ -55,28 +55,28 @@ namespace Player
             moveDirection = forward * input.y + right * input.x;
             moveDirection *= movementSpeed;
 
-            // if (input.magnitude > 0)
-            // {
-            //     characterAnimator.SetBool("IsWalking", true);
-            // }
-            // else
-            // {
-            //     characterAnimator.SetBool("IsWalking", false);
-            // }
+            if (input.magnitude > 0)
+            {
+                characterAnimator.SetBool("IsWalking", true);
+            }
+            else
+            {
+                characterAnimator.SetBool("IsWalking", false);
+            }
 
 
             if (InputManager.Instance.IsRunning())
             {
                 moveDirection *= runSpeedMultiplier;
-                // isRunning = true;
-                // speedEffect.SetActive(true);
-                // characterAnimator.SetBool("IsRunning", true);
+                isRunning = true;
+                speedEffect.SetActive(true);
+                characterAnimator.SetBool("IsRunning", true);
             }
             else
             {
-                // isRunning = false;
-                // speedEffect.SetActive(false);
-                // characterAnimator.SetBool("IsRunning", false);
+                isRunning = false;
+                speedEffect.SetActive(false);
+                characterAnimator.SetBool("IsRunning", false);
             }
 
 
