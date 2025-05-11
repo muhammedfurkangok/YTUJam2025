@@ -1,3 +1,4 @@
+using System;
 using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
@@ -11,7 +12,13 @@ using TMPro;
         public TextMeshProUGUI HealthText;
         public TextMeshProUGUI StaminaText;
         public TextMeshProUGUI AmmoText;
-    
+
+
+        private void Start()
+        {
+            
+        }
+
         public void UpdateHealthBar(float value)
         {
             HealthBar.DOFillAmount(value, 0.5f).SetEase(Ease.OutQuad);
@@ -25,7 +32,7 @@ using TMPro;
             StaminaText.text = $"{(int)(value * 100)}";
             StaminaText.DOColor(value < 0.3f ? Color.red : Color.white, 0.5f);
         }
-    
+        
         public void UpdateAmmoText(int currentAmmo, int maxAmmo, bool infiniteAmmo = false)
         {
             if (!infiniteAmmo)
@@ -41,5 +48,10 @@ using TMPro;
             {
                 AmmoText.text = $"";
             }
+        }
+
+        public void ShowDoctorSyringeUI()
+        {
+            
         }
     }

@@ -57,8 +57,7 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
         activeWeapon.gameObject.SetActive(true);
         currentWeaponIndex = index;
 
-        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo,
-            activeWeapon.data.isNoNeedAmmo);
+        UIManager.Instance.UpdateAmmoText(activeWeapon.data.reloadAmmo, activeWeapon.data.maxAmmo, activeWeapon.data.isNoNeedAmmo);
         Debug.Log($"[WeaponManager] Equipped: {activeWeapon.data.weaponName}");
     }
 

@@ -1,11 +1,16 @@
+using System;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemy
 {
     public class EnemyManager : SingletonMonoBehaviour<EnemyManager>
     {
         public GameObject[] enemyPrefabs;
+        public GameObject DoctorSyringePrefab;
+        public Transform doctorSyringeSpawnPoint;
         public Transform[] spawnPoints;
         public int maxEnemies = 20;
 
@@ -13,11 +18,42 @@ namespace Enemy
 
         private int currentEnemyCount = 0;
         private List<GameObject> enemies = new();
+        
+        public bool doctorSyringe = false;
 
         void Start()
         {
+            PlayerCardEffectsController.DoctorFinal += DoctorFinalInitialize;
+            PlayerCardEffectsController.RestartAllStats += RestartAllStats;
+
+
+            BurstSpawner();
+        }
+
+        private void RestartAllStats()
+        {
+            doctorSyringe = false;
+        }
+
+        private void DoctorFinalInitialize()
+        {
+            doctorSyringe = true;
+        }
+
+        private void BurstSpawner()
+        {
+            if (doctorSyringe)
+            {
+                DoctorSyringe();
+            }
             BurstSpawn();
             InvokeRepeating(nameof(SpawnEnemy), 5f, 5f); // Her 5 saniyede bir düşman spawnla
+        }
+
+        private void DoctorSyringe()
+        {
+            Instantiate(DoctorSyringePrefab, doctorSyringeSpawnPoint.position, Quaternion.identity);
+            UIManager.Instance.ShowDoctorSyringeUI();
         }
 
         void SpawnEnemy()
@@ -54,6 +90,12 @@ namespace Enemy
             {
                 Destroy(enemy);
             }
+        }
+
+        private void OnDisable()
+        {
+            PlayerCardEffectsController.DoctorFinal -= DoctorFinalInitialize;
+            PlayerCardEffectsController.RestartAllStats -= RestartAllStats;
         }
     }
 }

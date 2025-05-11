@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class MovementController : MonoBehaviour
+    public class MovementController : SingletonMonoBehaviour<MovementController>
     {
         public float movementSpeed = 5f;
         public float runSpeedMultiplier = 2f;
@@ -148,6 +148,11 @@ namespace Player
             PlayerCardEffectsController.Berserk -= DisableRun;
             PlayerCardEffectsController.GrimReaper -= RunningCausesDamage;
             PlayerCardEffectsController.RestartAllStats -= RestartStats;
+        }
+
+        public void KillYourselfAnim()
+        {
+           characterAnimator.SetTrigger("ShootYourself");
         }
     }
 }

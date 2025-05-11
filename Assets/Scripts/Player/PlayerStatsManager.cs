@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using Player;
 using UnityEngine;
 using Utilities;
@@ -19,6 +20,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     private Coroutine reduceStaminaCoroutine;
     private bool isUsingStamina = false;
     private bool isRegenerating = false;
+    [SerializeField] private bool isDoctorSyringe = false;
 
     public event Action OnDeath;
 
@@ -27,10 +29,22 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         PlayerCardEffectsController.MoreBrain += MoreBrainStats;
         PlayerCardEffectsController.RestartAllStats += RestartAllStats;
+        PlayerCardEffectsController.DoctorsSyringe+= DoctorsSyringe;
+    }
+
+    private void DoctorsSyringe()
+    {
+        health = 200;
+        maxHealth = 200;
+        stamina = 200f;
+        maxStamina = 200f;
     }
 
     void Update()
     {
+        DoctorSyringeHealthDecrease();
+        
+        
         if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f)
         {
             if (!isUsingStamina)
@@ -74,6 +88,15 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
             {
                 RegenerateStamina();
             }
+        }
+    }
+
+    private async void DoctorSyringeHealthDecrease()
+    {
+        if (isDoctorSyringe)
+        {
+            DecreaseHealth(1);
+            await UniTask.WaitForSeconds(1f);
         }
     }
 
@@ -122,6 +145,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
         maxHealth = 100;
         stamina = 100f;
         maxStamina = 100f;
+        isDoctorSyringe = false;
     }
 
     private void OnDisable()
