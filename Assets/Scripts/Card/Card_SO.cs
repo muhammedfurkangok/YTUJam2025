@@ -15,7 +15,24 @@ public struct CardData
 {
     public string CardName;
     public Sprite CardImage;
-    public Sprite  CardFront;
+    public Sprite CardFront;
     public Sprite CardBack;
     public string CardDescription;
+
+    public bool ifCutScene;
+
+    // Kartın çalıştıracağı fonksiyon
+    public CardEffectType effectType;
+}
+
+
+public enum CardEffectType
+{
+    None,
+    SpawnUnit,
+    HealPlayer,
+    DamageEnemy,
+    ChangeWeather,
+    FocusOnBuilding,
+    // istediğin kadar ekle
 }

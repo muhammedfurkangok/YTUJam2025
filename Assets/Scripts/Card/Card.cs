@@ -2,22 +2,24 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Card : MonoBehaviour
 {
     public Transform cardTransform;
 
-    [Header("Shake Settings")] public float shakeDuration = 2.5f;
+    [Header("Shake Settings")]
+    public float shakeDuration = 2.5f;
     public float shakeStrength = 20f;
     public int shakeVibrato = 20;
 
-    [Header("Reveal Settings")] public float preRevealPause = 0.2f;
+    [Header("Reveal Settings")]
+    public float preRevealPause = 0.2f;
     public float slowRevealDuration = 1.5f;
     public Ease revealEase = Ease.InOutElastic;
     public Image allInOneMaterial;
 
-
-    [Header("Card Setttings")] 
+    [Header("Card Settings")]
     public Image cardFront;
     public Image cardBack;
     public TextMeshProUGUI cardHeader;
@@ -25,9 +27,11 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI cardDescription;
     public CanvasGroup canvasGroup;
 
+    private CardData currentData;
 
     public void SetCardData(CardData cardData)
     {
+        currentData = cardData;
         cardHeader.text = cardData.CardName;
         cardImage.sprite = cardData.CardImage;
         cardDescription.text = cardData.CardDescription;
@@ -35,7 +39,7 @@ public class Card : MonoBehaviour
         cardBack.sprite = cardData.CardBack;
     }
 
-    public void RevealCard()
+    public void RevealCard(Action onRevealComplete = null)
     {
         cardTransform.localEulerAngles = new Vector3(0, 180, 0);
         canvasGroup.alpha = 1;
@@ -61,7 +65,14 @@ public class Card : MonoBehaviour
                 {
                     DOVirtual.Float(0, 1, slowRevealDuration,
                             (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); })
-                        .OnComplete(() => { DOVirtual.DelayedCall(0.5f, () => { HideCard(); }); });
+                        .OnComplete(() =>
+                        {
+                            DOVirtual.DelayedCall(0.5f, () =>
+                            {
+                                onRevealComplete?.Invoke();
+                                HideCard();
+                            });
+                        });
                 });
             });
         });
@@ -73,10 +84,8 @@ public class Card : MonoBehaviour
             .SetEase(Ease.InBack).OnComplete(() =>
             {
                 DOVirtual.Float(1, 0, slowRevealDuration,
-                    (value) =>
-                    {
-                        allInOneMaterial.material.SetFloat("_ShineLocation", value);
-                    }).OnComplete( () =>
+                    (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); })
+                    .OnComplete(() =>
                     {
                         canvasGroup.DOFade(0, slowRevealDuration).OnComplete(() =>
                         {
