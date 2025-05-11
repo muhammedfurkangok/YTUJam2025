@@ -1,37 +1,45 @@
 using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-using Utilities;
-
-public class UIManager : SingletonMonoBehaviour<UIManager>
-{
-    public Image HealthBar;
-    public Image StaminaBar;
-    public TextMeshProUGUI HealthText;
-    public TextMeshProUGUI StaminaText;
-    public TextMeshProUGUI AmmoText;
-
-    public void UpdateHealthBar(float value)
+    using UnityEngine;
+    using UnityEngine.UI;
+    using DG.Tweening; // Import DOTween
+    using Utilities;
+    
+    public class UIManager : SingletonMonoBehaviour<UIManager>
     {
-        HealthBar.fillAmount = value;
-        HealthText.text = $"{value * 100}";
-    }
-
-    public void UpdateStaminaBar(float value)
-    {
-        StaminaBar.fillAmount = value;
-        StaminaText.text = $"{(int)(value * 100)}";
-    }
-
-    public void UpdateAmmoText(int currentAmmo, int maxAmmo, bool infiniteAmmo = false)
-    {
-        if (!infiniteAmmo)
+        public Image HealthBar;
+        public Image StaminaBar;
+        public TextMeshProUGUI HealthText;
+        public TextMeshProUGUI StaminaText;
+        public TextMeshProUGUI AmmoText;
+    
+        public void UpdateHealthBar(float value)
         {
-            AmmoText.text = $"{currentAmmo}/{maxAmmo}";
+            HealthBar.DOFillAmount(value, 0.5f).SetEase(Ease.OutQuad);
+            HealthText.text = $"{(int)(value * 100)}";
+            HealthText.transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
         }
-        else
+    
+        public void UpdateStaminaBar(float value)
         {
-            AmmoText.text = $"";
+            StaminaBar.DOFillAmount(value, 0.5f).SetEase(Ease.OutQuad);
+            StaminaText.text = $"{(int)(value * 100)}";
+            StaminaText.DOColor(value < 0.3f ? Color.red : Color.white, 0.5f);
+        }
+    
+        public void UpdateAmmoText(int currentAmmo, int maxAmmo, bool infiniteAmmo = false)
+        {
+            if (!infiniteAmmo)
+            {
+                AmmoText.text = $"{currentAmmo}/{maxAmmo}";
+    
+                AmmoText.DOFade(0, 0.1f).OnComplete(() =>
+                {
+                    AmmoText.DOFade(1, 0.1f);
+                });
+            }
+            else
+            {
+                AmmoText.text = $"";
+            }
         }
     }
-}

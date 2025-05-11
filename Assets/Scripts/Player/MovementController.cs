@@ -65,7 +65,7 @@ namespace Player
             }
 
 
-            if (InputManager.Instance.IsRunning())
+            if (InputManager.Instance.IsRunning() && PlayerStatsManager.Instance.stamina > 0)
             {
                 moveDirection *= runSpeedMultiplier;
                 isRunning = true;

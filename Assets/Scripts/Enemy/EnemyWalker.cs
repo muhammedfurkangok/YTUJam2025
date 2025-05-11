@@ -26,13 +26,11 @@ namespace Enemy
         protected override void Die()
         {
             base.Die();
-            enemyAudioSource.PlayOneShot(AudioClips.Find(x => x.key == SoundType.RobotDeath).GetRandomClip());
         }
 
         public override void Attack()
         {
             spriteDirectionalController.animator.SetTrigger("Attack");
-            enemyAudioSource.PlayOneShot(AudioClips.Find(x => x.key == SoundType.RobotAttack).GetRandomClip());
 
             // Fiziksel saldırı alanı
             Vector3 boxCenter = transform.position + transform.forward * 1.2f;
@@ -62,7 +60,6 @@ namespace Enemy
         public void WalkSound()
         {
             if (enemyAudioSource.isPlaying) return;
-            enemyAudioSource.PlayOneShot(AudioClips.Find(x => x.key == SoundType.RobotWalk).GetRandomClip());
         }
     }
 }

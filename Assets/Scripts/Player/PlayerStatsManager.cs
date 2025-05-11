@@ -10,24 +10,79 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     public int maxHealth = 100;
 
     [Header("Stamina Settings")]
-    public float stamina = 100;
-    public int maxStamina = 100;
+    public float stamina = 100f;
+    public float maxStamina = 100f;
 
+    private float regenDelay = 1f;
     private float regenTimer = 0f;
     private Coroutine reduceStaminaCoroutine;
-    private bool isStaminaUsed = false;
+    private bool isUsingStamina = false;
+    private bool isRegenerating = false;
 
     public event Action OnDeath;
 
-    public void ReduceStamina()
+    void Update()
     {
-        if (stamina > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f)
         {
-            stamina = stamina - 0.1f;
+            if (!isUsingStamina)
+            {
+                isUsingStamina = true;
+                if (reduceStaminaCoroutine == null)
+                    reduceStaminaCoroutine = StartCoroutine(ReduceStaminaOverTime());
+            }
+
             regenTimer = 0f;
-            isStaminaUsed = true;
-            UIManager.Instance.UpdateStaminaBar((float)stamina / maxStamina);
+            isRegenerating = false;
         }
+        else
+        {
+            if (isUsingStamina)
+            {
+                isUsingStamina = false;
+                regenTimer = 0f;
+                isRegenerating = false;
+
+                if (reduceStaminaCoroutine != null)
+                {
+                    StopCoroutine(reduceStaminaCoroutine);
+                    reduceStaminaCoroutine = null;
+                }
+
+                AudioManager.Instance.PlayOneShotSound(SoundType.TiredBreath);
+            }
+
+            if (!isRegenerating && stamina < maxStamina)
+            {
+                regenTimer += Time.deltaTime;
+
+                if (regenTimer >= regenDelay)
+                {
+                    isRegenerating = true;
+                }
+            }
+
+            if (isRegenerating)
+            {
+                RegenerateStamina();
+            }
+        }
+    }
+
+    private IEnumerator ReduceStaminaOverTime()
+    {
+        while (stamina > 0f)
+        {
+            stamina = Mathf.Max(0f, stamina - 2f);
+            UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private void RegenerateStamina()
+    {
+        stamina = Mathf.Min(stamina + 20f * Time.deltaTime, maxStamina);
+        UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
     }
 
     public void IncreaseHealth(int amount)
@@ -40,58 +95,10 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         health = Mathf.Max(health - amount, 0);
         UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
-        if(health == 0) OnDeath?.Invoke();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (health == 0)
         {
-            if (reduceStaminaCoroutine == null && stamina > 0)
-            {
-                reduceStaminaCoroutine = StartCoroutine(ReduceStaminaOverTime());
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            AudioManager.Instance.PlayOneShotSound(SoundType.TiredBreath);
-
-            if (reduceStaminaCoroutine != null)
-            {
-                StopCoroutine(reduceStaminaCoroutine);
-                reduceStaminaCoroutine = null;
-            }
-        }
-
-        if (!Input.GetKey(KeyCode.LeftShift))
-        {
-            StaminaIncrease();
-        }
-    }
-
-    private IEnumerator ReduceStaminaOverTime()
-    {
-        while (stamina > 0)
-        {
-            ReduceStamina();
-            yield return new WaitForSeconds(10f);
-        }
-    }
-
-    private void StaminaIncrease()
-    {
-        if (stamina < maxStamina)
-        {
-            float waitTime = (stamina == 0 || isStaminaUsed) ? 0.6f : 0.05f;
-            regenTimer += Time.deltaTime;
-
-            if (regenTimer >= waitTime)
-            {
-                stamina++;
-                regenTimer = 0f;
-                UIManager.Instance.UpdateStaminaBar((float)stamina / maxStamina);
-                isStaminaUsed = false;
-            }
+            OnDeath?.Invoke();
+            Debug.Log("Player is dead");
         }
     }
 }

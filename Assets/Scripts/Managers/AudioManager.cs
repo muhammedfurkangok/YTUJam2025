@@ -8,8 +8,9 @@ public enum SoundType
     ColtReload = 1,
     ShotgunShoot  = 2,
     ShotgunReload = 3,
-    Walk = 4,
     FistHit = 5,
+    Walk = 4,
+    TiredBreath = 6,
 }
 
 [Serializable]
