@@ -38,6 +38,8 @@ namespace Enemy
         private void DoctorFinalInitialize()
         {
             doctorSyringe = true;
+            ClearEnemies();
+            DoctorSyringe();
         }
 
         private void BurstSpawner()

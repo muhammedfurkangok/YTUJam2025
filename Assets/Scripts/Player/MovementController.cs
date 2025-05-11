@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using KBCore.Refs;
 using Runtime.System.InputSystem;
 using Unity.Cinemachine;
@@ -31,6 +33,7 @@ namespace Player
         public bool isBoostingActive = true;
 
         public bool isGreamReaperActive = false;
+        private Coroutine healthDecreaseCoroutine;
 
         void Start()
         {
@@ -84,7 +87,10 @@ namespace Player
 
                 if (isGreamReaperActive)
                 {
-                    PlayerStatsManager.Instance.DecreaseHealth(1);
+                    if (healthDecreaseCoroutine == null)
+                    {
+                        healthDecreaseCoroutine = StartCoroutine(DecreaseHealthOverTime());
+                    }
                 }
             }
             else
@@ -92,8 +98,15 @@ namespace Player
                 isRunning = false;
                 speedEffect.SetActive(false);
                 characterAnimator.SetBool("IsRunning", false);
+
+                if (healthDecreaseCoroutine != null)
+                {
+                    StopCoroutine(healthDecreaseCoroutine);
+                    healthDecreaseCoroutine = null;
+                }
             }
 
+            
 
             if (InputManager.Instance.IsJumping() && controller.isGrounded)
             {
@@ -135,12 +148,19 @@ namespace Player
             isGreamReaperActive = false;
         }
         
+        private IEnumerator DecreaseHealthOverTime()
+        {
+            while (isGreamReaperActive)
+            {
+                PlayerStatsManager.Instance.DecreaseHealth(1); // Sağlık daha yavaş azalır
+                yield return new WaitForSeconds(1f); // Her 1 saniyede bir azalma
+            }
+        }
+        
         public void RunningCausesDamage()
         {
-            if (isRunning && isGreamReaperActive)
-            {
-                PlayerStatsManager.Instance.DecreaseHealth(1);
-            }
+            isGreamReaperActive = true;
+          
         }
 
         private void OnDisable()
