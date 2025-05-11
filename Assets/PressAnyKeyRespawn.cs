@@ -7,6 +7,7 @@ public class PressAnyKeyRespawn : MonoBehaviour
 {
     public CanvasGroup revealCanvasGroup;
     public TextMeshProUGUI pressAnyKeyText;
+    public int SceneIndex;
 
 
     private void Start()
@@ -19,7 +20,7 @@ public class PressAnyKeyRespawn : MonoBehaviour
         if (Input.anyKeyDown)
         {
             DOVirtual.Float(revealCanvasGroup.alpha, 1f, 0.5f, alpha => { revealCanvasGroup.alpha = alpha; })
-                .OnComplete(() => { UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay"); });
+                .OnComplete(() => { UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:SceneIndex); });
         }
     }
 }

@@ -769,6 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealCanvasGroup: {fileID: 35109382}
   pressAnyKeyText: {fileID: 1645016619}
+  SceneIndex: 1
 --- !u!114 &1645016619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1328600545851799442, guid: 8c0e0d94d9fe1f44aaea78e3d83d1641, type: 3}
