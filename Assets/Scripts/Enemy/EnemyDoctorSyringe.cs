@@ -117,6 +117,7 @@ namespace Enemy
         {
             bossHealthBarBackground.transform.DOScale(new Vector3(0, 1, 1), 0.5f)
                 .SetEase(Ease.InBack);
+             bossHealthBarFill.fillAmount = 0f;
         }
     }
 }
