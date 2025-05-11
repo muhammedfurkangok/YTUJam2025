@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 using Utilities;
 
@@ -20,6 +21,13 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     private bool isRegenerating = false;
 
     public event Action OnDeath;
+
+
+    private void Start()
+    {
+        PlayerCardEffectsController.MoreBrain += MoreBrainStats;
+        PlayerCardEffectsController.RestartAllStats += RestartAllStats;
+    }
 
     void Update()
     {
@@ -73,7 +81,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         while (stamina > 0f)
         {
-            stamina = Mathf.Max(0f, stamina - 2f);
+            stamina = Mathf.Max(0f, stamina - 1f);
             UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
             yield return new WaitForSeconds(0.1f);
         }
@@ -100,5 +108,25 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
             OnDeath?.Invoke();
             Debug.Log("Player is dead");
         }
+    }
+
+    public void MoreBrainStats()
+    {
+        maxHealth = 150;
+        health = 150;
+    }
+
+    public void RestartAllStats()
+    {
+        health = 100;
+        maxHealth = 100;
+        stamina = 100f;
+        maxStamina = 100f;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCardEffectsController.MoreBrain -= MoreBrainStats;
+        PlayerCardEffectsController.RestartAllStats -= RestartAllStats;
     }
 }
