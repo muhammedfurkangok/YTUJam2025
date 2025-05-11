@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class DeathCameraCutscene : MonoBehaviour
+public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
 {
     [Header("Controls")]
     [SerializeField] float duration;
@@ -20,13 +20,13 @@ public class DeathCameraCutscene : MonoBehaviour
     private Vector3 startPos, startRot;
     private void Start()
     {
-        startRot = transform.eulerAngles;
-        startPos = transform.position;
+        startRot = Vector3.zero;
+        startPos = new(0, 0.59f, 0);
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.E)) DieAnim();
+        if (Input.GetKey(KeyCode.E)) PlayerStatsManager.Instance.DecreaseHealth(100);
         if (Input.GetKey(KeyCode.T)) ResetCamera(); 
     }
     //oyuncu üstündeki kamerayı kımıldatıyor.
@@ -34,12 +34,12 @@ public class DeathCameraCutscene : MonoBehaviour
     {
         Blackout();
         transform.DORotate(rot, duration).SetEase(rotateEase);
-        transform.DOMove(pos, duration).SetEase(moveEase);
+        transform.DOMove(pos, duration).SetEase(moveEase).OnComplete(() => ResetCamera());   
     }
     public void ResetCamera()
     {
         transform.eulerAngles = startRot;
-        transform.position = startPos;
+        transform.localPosition = startPos;
     }
 
     private void Blackout()

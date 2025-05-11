@@ -21,10 +21,12 @@ public class DoctorController : MonoBehaviour
     public static event Action<float> OnDoctorEnject;
     public static event Action<float> OnDoctorAttackEnd;
 
+    Tween tweee;
+
     public void DocMove()
     {
         animator.SetTrigger("Walk");
-        doTweenPath.tween.Play().OnComplete(() => animator.SetTrigger("Attack"));
+        tweee = doTweenPath.tween.Play().OnComplete(() => animator.SetTrigger("Attack"));
     }
 
     public void OnDoctorStabAnimationEvent()
@@ -39,5 +41,8 @@ public class DoctorController : MonoBehaviour
     public void OnDoctorAttackEndAnimationEvent()
     {
         OnDoctorAttackEnd?.Invoke(endEffectDuration);
+        animator.ResetTrigger("Walk");
+        animator.ResetTrigger("Attack");
+        tweee.Rewind();
     }
 }

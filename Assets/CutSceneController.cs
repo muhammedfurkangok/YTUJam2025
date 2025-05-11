@@ -12,7 +12,7 @@ public class CutSceneController : MonoBehaviour
         if (Input.GetKey(KeyCode.F)) CutSceneStart();
     }
 
-    public void CutSceneStart()
+    public void CutSceneStart() //all are auto-reseted when done.
     {
         cameraCut.Cut();
         canvasCut.Cut();

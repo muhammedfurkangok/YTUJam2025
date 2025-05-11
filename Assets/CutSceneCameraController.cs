@@ -12,10 +12,7 @@ public class CutSceneCameraController : SingletonMonoBehaviour<CutSceneCameraCon
     public void Cut()
     {
         cam.gameObject.SetActive(true);
-        foreach (var obj in allObjectsToDisable)
-        {
-            obj.SetActive(false);
-        }
+        DisableObjects();
         cam.Priority = 10;
         animator.SetBool("Cut", true);
     }
@@ -25,6 +22,14 @@ public class CutSceneCameraController : SingletonMonoBehaviour<CutSceneCameraCon
         cam.gameObject.SetActive(false);
         cam.Priority = -10;
        animator.SetBool("Cut", false);
+    }
+
+    public void DisableObjects()
+    {
+        foreach (var obj in allObjectsToDisable)
+        {
+            obj.SetActive(false);
+        }
     }
     
     public void ActivateObjects()
