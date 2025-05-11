@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 974b2f0dd782b8f4ebdbfa1013120c41, type: 3}
-  m_Name: NewCard
+  m_Name: NewCard 6
   m_EditorClassIdentifier: 
   cardData:
-  - CardName: Welcome Life  <shake><color=red>Again!</color></shake>
+  - CardName: <shake><color=red> It's Over Doctor.</color></shake>
     CardImage: {fileID: -7053939661997144990, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
-    CardFront: {fileID: 1611676444, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
-    CardBack: {fileID: 424643307, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
-    CardDescription: YOUR WOLD IS UPSIRDE DOWN
+    CardFront: {fileID: 143410448, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
+    CardBack: {fileID: -755955550, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
+    CardDescription: I can see the light for real this time...
+    ifCutScene: 0
+    effectType: 0

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
@@ -34,10 +35,11 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
     {
         Blackout();
         transform.DORotate(rot, duration).SetEase(rotateEase);
-        transform.DOMove(pos, duration).SetEase(moveEase).OnComplete(() => ResetCamera());   
+        transform.DOMove(pos, duration).SetEase(moveEase).OnComplete(() => StartCoroutine(ResetCamera()));   
     }
-    public void ResetCamera()
+    public IEnumerator ResetCamera()
     {
+        yield return new WaitForSeconds(1.5f);
         transform.eulerAngles = startRot;
         transform.localPosition = startPos;
     }
