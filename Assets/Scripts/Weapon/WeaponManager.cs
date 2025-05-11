@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Player;
+using Runtime.System.InputSystem;
 using Unity.Cinemachine;
 using UnityEngine;
 using Weapon;
@@ -26,7 +27,9 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
 
     private void Update()
     {
-        HandleWeaponSwitch();
+        if(InputManager.Instance.blockMovementInput) return;
+        
+         HandleWeaponSwitch();
         if (activeWeapon == null) return;
 
         if (Input.GetMouseButtonDown(0) && !activeWeapon.IsAuto()) activeWeapon.Fire();
