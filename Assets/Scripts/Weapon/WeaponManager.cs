@@ -12,7 +12,7 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
     private WeaponBase activeWeapon;
     [SerializeField] private CinemachineCamera cinemachineCamera;
 
-    public bool isBersekMode = true;
+    public bool isBersekMode = false;
     public bool isOnlyHsMode = false;
 
     private void Start()
