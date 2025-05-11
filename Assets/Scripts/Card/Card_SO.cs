@@ -19,7 +19,6 @@ public struct CardData
     public Sprite CardBack;
     public string CardDescription;
 
-    public bool ifCutScene;
 
     // Kartın çalıştıracağı fonksiyon
     public CardEffectType effectType;

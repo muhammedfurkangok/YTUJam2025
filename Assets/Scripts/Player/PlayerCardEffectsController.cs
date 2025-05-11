@@ -18,10 +18,7 @@ namespace Player
 
         public void ExecuteCardEffect(CardData data)
         {
-            if (data.ifCutScene)
-            {
-                ApplyEffect(data.effectType);
-            }
+            ApplyEffect(data.effectType);
         }
 
         public void RestartAll()

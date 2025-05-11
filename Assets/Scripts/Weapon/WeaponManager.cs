@@ -41,7 +41,6 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
 
         if (!isBersekMode)
         {
-           
             if (Input.GetKeyDown(KeyCode.Alpha2)) EquipWeapon(1);
             if (Input.GetKeyDown(KeyCode.Alpha3)) EquipWeapon(2);
         }
