@@ -38,6 +38,8 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
         maxHealth = 200;
         stamina = 200f;
         maxStamina = 200f;
+        UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
+        UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
     }
 
     void Update()
@@ -137,6 +139,8 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         maxHealth = 150;
         health = 150;
+        UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
+        UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
     }
 
     public void RestartAllStats()
@@ -152,5 +156,6 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         PlayerCardEffectsController.MoreBrain -= MoreBrainStats;
         PlayerCardEffectsController.RestartAllStats -= RestartAllStats;
+        PlayerCardEffectsController.DoctorsSyringe -= DoctorsSyringe;
     }
 }

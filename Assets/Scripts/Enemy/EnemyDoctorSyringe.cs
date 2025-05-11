@@ -10,13 +10,18 @@ namespace Enemy
     {
         private float attackCooldown = 2f;
         private float lastAttackTime = 0f;
-        
+
+        [Header("Health Settings")]
+        public float maxHealth = 1000f;
+        private float currentHealth;
+
         [Header("UI Settings")]
         public GameObject bossHealthBarBackground;
         public Image bossHealthBarFill;
 
         private void Start()
         {
+            currentHealth = maxHealth;
             HealthBarInitializeAnimation();
         }
 
@@ -35,27 +40,19 @@ namespace Enemy
             }
         }
 
-
-        protected override void Die()
-        {
-            base.Die();
-
-            MovementController.Instance.KillYourselfAnim();
-        }
-
-      public override void Attack()
+        public override void Attack()
         {
             spriteDirectionalController.animator.SetTrigger("Attack");
-        
+
             // Calculate direction to the player
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        
+
             // Adjust the box center to face the player
             Vector3 boxCenter = transform.position + directionToPlayer * 1.2f;
-            Vector3 boxSize = new Vector3(1.5f, 2f, 1.5f); // x-y-z dimensions
-        
+            Vector3 boxSize = new Vector3(1.5f, 2f, 1.5f);
+
             Collider[] hits = Physics.OverlapBox(boxCenter, boxSize / 2, Quaternion.identity);
-        
+
             foreach (var hit in hits)
             {
                 if (hit.CompareTag("Player"))
@@ -64,6 +61,29 @@ namespace Enemy
                     break;
                 }
             }
+        }
+
+        public override void TakeDamage(float damage)
+        {
+            if (isDead) return;
+
+            currentHealth -= damage;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+            bossHealthBarFill.fillAmount = currentHealth / maxHealth;
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+
+        protected override void Die()
+        {
+            base.Die();
+
+            HealhBarCloseAnimation();
+            MovementController.Instance.KillYourselfAnim();
         }
 
         private void OnDrawGizmosSelected()
@@ -77,25 +97,26 @@ namespace Enemy
 
         public void WalkSound()
         {
-            if (enemyAudioSource.isPlaying) return;
+           
         }
-        
+
         private void HealthBarInitializeAnimation()
         {
             bossHealthBarBackground.gameObject.SetActive(true);
-            
-            bossHealthBarBackground.transform.DOScale(new Vector3(1, 1, 1), 0.5f).SetEase(Ease.OutBack)
+
+            bossHealthBarBackground.transform.DOScale(new Vector3(1, 1, 1), 0.5f)
+                .SetEase(Ease.OutBack)
                 .OnComplete(() =>
                 {
-                    bossHealthBarFill.DOFillAmount(1, 2f).OnComplete(() =>
-                    {
-                    });
+                    bossHealthBarFill.fillAmount = 0f;
+                    bossHealthBarFill.DOFillAmount(1f, 2f);
                 });
         }
 
         private void HealhBarCloseAnimation()
         {
-            bossHealthBarBackground.transform.DOScale(new Vector3(0, 1, 1), 0.5f).SetEase(Ease.InBack);
+            bossHealthBarBackground.transform.DOScale(new Vector3(0, 1, 1), 0.5f)
+                .SetEase(Ease.InBack);
         }
     }
 }
