@@ -21,7 +21,7 @@ MonoBehaviour:
     ifCutScene: 0
     effectType: 0
   - CardName: You're getting <shake><color=red>numb...</color></shake>
-    CardImage: {fileID: -973253533, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
+    CardImage: {fileID: 828561424, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
     CardFront: {fileID: -623534738, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: -2007166715, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: OUR FATHERS USED TO HEADBUTT BULLETS.

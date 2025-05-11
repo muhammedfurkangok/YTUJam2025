@@ -245,9 +245,9 @@ TextureImporter:
       name: Card icons 2_6
       rect:
         serializedVersion: 2
-        x: 22
+        x: 11
         y: 112
-        width: 68
+        width: 79
         height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: Card icons 2_7
       rect:
         serializedVersion: 2
-        x: 175
-        y: 221
-        width: 23
-        height: 34
+        x: 109
+        y: 115
+        width: 84
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: Card icons 2_8
       rect:
         serializedVersion: 2
-        x: 122
-        y: 129
-        width: 56
-        height: 76
+        x: 195
+        y: 93
+        width: 88
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: Card icons 2_9
       rect:
         serializedVersion: 2
-        x: 205
-        y: 115
-        width: 64
-        height: 91
+        x: 299
+        y: 125
+        width: 48
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,10 +333,10 @@ TextureImporter:
       name: Card icons 2_10
       rect:
         serializedVersion: 2
-        x: 299
-        y: 125
-        width: 48
-        height: 62
+        x: 416
+        y: 88
+        width: 88
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,10 +355,10 @@ TextureImporter:
       name: Card icons 2_11
       rect:
         serializedVersion: 2
-        x: 351
-        y: 124
-        width: 47
-        height: 42
+        x: 306
+        y: 14
+        width: 103
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,72 +369,6 @@ TextureImporter:
       bones: []
       spriteID: 78c6ea0eab8e79747865985d9cf09fe4
       internalID: 847289515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Card icons 2_12
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 21
-        width: 83
-        height: 83
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f0140d4e8f26c64cb38e51ad6e74746
-      internalID: 1949768817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Card icons 2_13
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 13
-        width: 83
-        height: 83
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a53b6090fc5c64b428d1fe1f6ab35567
-      internalID: 119194713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Card icons 2_14
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 49
-        width: 28
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad38b1a3c64063e4598d23aa078a0682
-      internalID: 440353959
       vertices: []
       indices: 
       edges: []
@@ -457,9 +391,6 @@ TextureImporter:
       Card icons 2_1: -973253533
       Card icons 2_10: 828561424
       Card icons 2_11: 847289515
-      Card icons 2_12: 1949768817
-      Card icons 2_13: 119194713
-      Card icons 2_14: 440353959
       Card icons 2_2: -1257582735
       Card icons 2_3: 207171185
       Card icons 2_4: -51000592
