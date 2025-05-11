@@ -239,7 +239,8 @@ GameObject:
   - component: {fileID: 3720390058312999074}
   - component: {fileID: 4220674202608563276}
   - component: {fileID: 1477772544444668458}
-  - component: {fileID: 5651088895539447559}
+  - component: {fileID: 1868764427962272981}
+  - component: {fileID: 8492567243440947475}
   m_Layer: 0
   m_Name: Gfx
   m_TagString: Enemy
@@ -497,7 +498,38 @@ MonoBehaviour:
   shootPoint: {fileID: 3144959201617153142}
   attackCooldown: 3
   lastAttackTime: -Infinity
---- !u!95 &5651088895539447559
+--- !u!114 &1868764427962272981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641084458861356487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ae653137096f14f87d639f5bf4ded0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  moveSpeed: 3.5
+  attackRange: 25
+  damage: 10
+  spriteDirectionalController: {fileID: 5526966260753932098}
+  player: {fileID: 0}
+  agent: {fileID: 3720390058312999074}
+  isDead: 0
+  dontDestroy: 0
+  patrolPoints:
+  - {fileID: 1676844656566339814}
+  - {fileID: 6422000230066807629}
+  - {fileID: 8644873143874613096}
+  enemyAudioSource: {fileID: 4220674202608563276}
+  AudioClips: []
+  projectilePrefab: {fileID: 6667506555167492218, guid: 96fa07b6aa5608344948b5e4f04acef5, type: 3}
+  shootPoint: {fileID: 3144959201617153142}
+  attackCooldown: 3
+  lastAttackTime: -Infinity
+--- !u!95 &8492567243440947475
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
