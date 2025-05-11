@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 3720390058312999074}
   - component: {fileID: 4220674202608563276}
   - component: {fileID: 1477772544444668458}
-  - component: {fileID: 5651088895539447559}
+  - component: {fileID: 8492567243440947475}
   m_Layer: 0
   m_Name: Gfx
   m_TagString: Enemy
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ba346958027a440bb77a547e0ec811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 8492567243440947475}
   characterTransform: {fileID: 5025496714215604842}
 --- !u!195 &3720390058312999074
 NavMeshAgent:
@@ -497,7 +497,7 @@ MonoBehaviour:
   shootPoint: {fileID: 3144959201617153142}
   attackCooldown: 3
   lastAttackTime: -Infinity
---- !u!95 &5651088895539447559
+--- !u!95 &8492567243440947475
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0

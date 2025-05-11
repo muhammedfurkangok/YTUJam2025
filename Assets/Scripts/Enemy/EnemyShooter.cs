@@ -48,7 +48,12 @@ using UnityEngine;
                     public override void Attack()
                     {
                         spriteDirectionalController.animator.SetTrigger("Attack");
-                    
+
+                      
+                    }
+
+                    private void ShootBullet()
+                    {
                         // Instantiate the bullet at the shoot point
                         GameObject bullet = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
                         Rigidbody rb = bullet.GetComponent<Rigidbody>();
@@ -64,7 +69,7 @@ using UnityEngine;
                         // Play sniper shot sound if needed
                         // enemyAudioSource.PlayOneShot(AudioClips.Find(x => x.key == SoundType.RobotAttack).GetRandomClip());
                     }
-            
+
                     protected override void Die()
                     {
                         base.Die();
