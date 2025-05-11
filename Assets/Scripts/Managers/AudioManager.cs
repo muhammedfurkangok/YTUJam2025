@@ -4,20 +4,12 @@ using UnityEngine;
 
 public enum SoundType
 {
-    GlockShoot,
-    GlockReload,
-    M4A1Shoot,
-    M4A1Reload,
-    Walk,
-    TiredBreath,
-    RobotDeath,
-    RobotAttack,
-    RobotWalk,
-    CrapDeath,
-    CrapAttack,
-    CrapWalk,
-    Equip,
-    DoorSlam,
+    ColtShoot = 0,
+    ColtReload = 1,
+    ShotgunShoot  = 2,
+    ShotgunReload = 3,
+    Walk = 4,
+    FistHit = 5,
 }
 
 [Serializable]

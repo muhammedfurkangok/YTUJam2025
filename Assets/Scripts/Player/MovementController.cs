@@ -104,6 +104,7 @@ namespace Player
 
         public void PlayWalkSound()
         {
+            AudioManager.Instance.PlayOneShotSound(SoundType.Walk); 
         }
     }
 }
