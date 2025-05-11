@@ -41,7 +41,7 @@ namespace Player
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            PlayerCardEffectsController.Berserk += DisableRun;
+            PlayerCardEffectsController.MoreBrain += DisableRun;
             PlayerCardEffectsController.GrimReaper += RunningCausesDamage;
             PlayerCardEffectsController.RestartAllStats += RestartStats;
         }
@@ -165,7 +165,7 @@ namespace Player
 
         private void OnDisable()
         {
-            PlayerCardEffectsController.Berserk -= DisableRun;
+            PlayerCardEffectsController.MoreBrain -= DisableRun;
             PlayerCardEffectsController.GrimReaper -= RunningCausesDamage;
             PlayerCardEffectsController.RestartAllStats -= RestartStats;
         }
