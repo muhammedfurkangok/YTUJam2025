@@ -35,12 +35,6 @@ namespace Enemy
             Debug.Log("Yeni düşman spawnlandı!");
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.H)) BurstSpawn();
-            if (Input.GetKeyDown(KeyCode.J)) ClearEnemies();
-        }
-
         public void BurstSpawn()
         {
             canSpawn = true;
