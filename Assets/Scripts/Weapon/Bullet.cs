@@ -1,5 +1,7 @@
 using Enemy;
+using MoreMountains.Feedbacks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Weapon
 {
@@ -32,13 +34,13 @@ namespace Weapon
                 enemy.TakeDamage(100, true);
                 Destroy(gameObject);
 
-                // var MMFPlayer = FindObjectOfType<MMF_Player>();
-                //
-                // MMF_FloatingText floatingText = MMFPlayer.GetFeedbackOfType<MMF_FloatingText>();
-                //
-                // floatingText.Value = "HEADSHOT!!!";
-                //
-                // MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f);
+                var MMFPlayer = FindObjectOfType<MMF_Player>();
+
+                MMF_FloatingText floatingText = MMFPlayer.GetFeedbackOfType<MMF_FloatingText>();
+
+                floatingText.Value = "HEADSHOT!!!";
+
+                MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f);
             }
             else if (other.CompareTag("Enemy"))
             {
@@ -47,14 +49,14 @@ namespace Weapon
                 {
                     if (enemy.isDead) return;
                     enemy.TakeDamage(damage);
-                    // var MMFPlayer = FindObjectOfType<MMF_Player>();
-                    // if (MMFPlayer != null)
-                    // {
-                    //     damage = Random.Range(20, 45);
-                    //     MMF_FloatingText floatingText = MMFPlayer.GetFeedbackOfType<MMF_FloatingText>();
-                    //     floatingText.Value = damage.ToString();
-                    //     MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f, damage);
-                    // }
+                    var MMFPlayer = FindObjectOfType<MMF_Player>();
+                    if (MMFPlayer != null)
+                    {
+                        damage = Random.Range(20, 45);
+                        MMF_FloatingText floatingText = MMFPlayer.GetFeedbackOfType<MMF_FloatingText>();
+                        floatingText.Value = damage.ToString();
+                        MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f, damage);
+                    }
                 }
 
 
