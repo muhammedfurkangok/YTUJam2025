@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PunchAnim
+  m_Name: Idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,8 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0.5
-      value: {fileID: -1977164336, guid: ff67b28ca59c0654eb853474290c8f4d, type: 3}
+    - time: 0
+      value: {fileID: 205061997, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
+    - time: 0.21666667
+      value: {fileID: 239355894, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
+    - time: 0.45
+      value: {fileID: 7729185, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
+    - time: 0.6666667
+      value: {fileID: -888706538, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,13 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1977164336, guid: ff67b28ca59c0654eb853474290c8f4d, type: 3}
+    - {fileID: 205061997, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
+    - {fileID: 239355894, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
+    - {fileID: 7729185, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
+    - {fileID: -888706538, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

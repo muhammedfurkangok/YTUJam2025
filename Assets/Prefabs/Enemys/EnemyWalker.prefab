@@ -90,8 +90,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1372315675578416594}
-  - component: {fileID: 5313840158571331524}
-  - component: {fileID: 7140489450612580255}
   m_Layer: 0
   m_Name: EnemyWalker
   m_TagString: Untagged
@@ -108,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 1154943173622006262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2383792, y: -0.354, z: -6.3667927}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -118,85 +116,6 @@ Transform:
   - {fileID: 7441240671354961428}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5313840158571331524
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154943173622006262}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 020fd3e441df5b242bb1c112dfe4fec8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7140489450612580255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154943173622006262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8844d39bbab84597b0db66938e057dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  moveSpeed: 3.5
-  attackRange: 2
-  damage: 30
-  spriteDirectionalController: {fileID: 7456015334001099682}
-  player: {fileID: 0}
-  agent: {fileID: 3366999657687480616}
-  isDead: 0
-  dontDestroy: 0
-  patrolPoints:
-  - {fileID: 2752581454620758582}
-  - {fileID: 7937423722735512476}
-  - {fileID: 7441240671354961428}
-  enemyAudioSource: {fileID: 334857286595556893}
-  AudioClips:
-  - key: 6
-    isMultiple: 0
-    clips:
-    - {fileID: 8300000, guid: 51f6c6e7e8ae41146af702cfbf01590f, type: 3}
-    externalAudioSource: {fileID: 0}
-    volume: 0
-    useRandomPitch: 0
-    minPitch: 0
-    maxPitch: 0
-  - key: 7
-    isMultiple: 0
-    clips:
-    - {fileID: 8300000, guid: 0df7fd60f6991974e8bfcbba52c33550, type: 3}
-    externalAudioSource: {fileID: 0}
-    volume: 0
-    useRandomPitch: 1
-    minPitch: 0
-    maxPitch: 0
-  - key: 8
-    isMultiple: 0
-    clips:
-    - {fileID: 8300000, guid: 63a8066a1cccb024da134189293756a6, type: 3}
-    - {fileID: 8300000, guid: ef5ad38a99ba9ee4aa5a664e4a758ed5, type: 3}
-    - {fileID: 8300000, guid: 11f6059057d83cd47a060afd61ffd9c9, type: 3}
-    - {fileID: 8300000, guid: 8de2fe780b77a2442b13e2b4c79f7eab, type: 3}
-    externalAudioSource: {fileID: 0}
-    volume: 0
-    useRandomPitch: 0
-    minPitch: 0
-    maxPitch: 0
 --- !u!1 &1220199665277847875
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +130,8 @@ GameObject:
   - component: {fileID: 7456015334001099682}
   - component: {fileID: 3366999657687480616}
   - component: {fileID: 334857286595556893}
+  - component: {fileID: 6898814952931903932}
+  - component: {fileID: 8071003955577149695}
   m_Layer: 0
   m_Name: Gfx
   m_TagString: Enemy
@@ -226,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220199665277847875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
@@ -279,12 +200,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2058395353, guid: 294e8fe5ecb22d349a401b6e736d8c85, type: 3}
+  m_Sprite: {fileID: 205061997, guid: d9630d2eb7986a94db38b64de9ba5588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 4.8, y: 3.5142858}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -315,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ba346958027a440bb77a547e0ec811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5313840158571331524}
+  animator: {fileID: 6898814952931903932}
   characterTransform: {fileID: 1372315675578416594}
 --- !u!195 &3366999657687480616
 NavMeshAgent:
@@ -436,6 +357,55 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &6898814952931903932
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220199665277847875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 020fd3e441df5b242bb1c112dfe4fec8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8071003955577149695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220199665277847875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8844d39bbab84597b0db66938e057dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  moveSpeed: 3.5
+  attackRange: 2
+  damage: 20
+  spriteDirectionalController: {fileID: 7456015334001099682}
+  player: {fileID: 0}
+  agent: {fileID: 3366999657687480616}
+  isDead: 0
+  dontDestroy: 0
+  patrolPoints:
+  - {fileID: 2752581454620758582}
+  - {fileID: 7937423722735512476}
+  - {fileID: 7441240671354961428}
+  enemyAudioSource: {fileID: 334857286595556893}
+  AudioClips: []
 --- !u!1 &3290660332634370688
 GameObject:
   m_ObjectHideFlags: 0

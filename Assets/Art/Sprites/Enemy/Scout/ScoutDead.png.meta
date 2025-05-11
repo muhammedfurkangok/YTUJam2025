@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62d88af2eb57cb346b7b2f39c69d8c2d
+guid: 666dc12ac96f72b4189716260d9e563d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scout-Run-Sheet_0
+      name: "\xF6lme_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 76
-        height: 87
+        width: 168
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f49a82930709c64c80e44535ab800db
-      internalID: -298142073
+      spriteID: a2b34218c6ed67543be4efac94c62767
+      internalID: 143144776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout-Run-Sheet_1
+      name: "\xF6lme_1"
       rect:
         serializedVersion: 2
-        x: 76
+        x: 168
         y: 0
-        width: 76
-        height: 87
+        width: 168
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,8 +134,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de5e01a1b7d62fa499a69d54f2cc9afa
-      internalID: -1698794216
+      spriteID: 9979984cfa39a4b45b952db334815756
+      internalID: -92946776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xF6lme_2"
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 168
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08081bc1b67f14f46a48a56a699a8fd6
+      internalID: 1327032611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xF6lme_3"
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 168
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22181bbec16f9dd469871a9891f50a78
+      internalID: 2106456961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xF6lme_4"
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 168
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02cd09607065670499cef2dc7e157fb0
+      internalID: 1682022685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xF6lme_5"
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 168
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bdcab9f3a65f22459b6acef5a5019fb
+      internalID: 1508733724
       vertices: []
       indices: 
       edges: []
@@ -144,7 +232,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f7a9c7a0a8200d14c9a63316ca4ee3f6
+    spriteID: 7550daf9cd0677749a5a1017f2611aa2
     internalID: 0
     vertices: []
     indices: 
@@ -154,8 +242,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Scout-Run-Sheet_0: -298142073
-      Scout-Run-Sheet_1: -1698794216
+      "\xF6lme_0": 143144776
+      "\xF6lme_1": -92946776
+      "\xF6lme_2": 1327032611
+      "\xF6lme_3": 2106456961
+      "\xF6lme_4": 1682022685
+      "\xF6lme_5": 1508733724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

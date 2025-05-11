@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1aa88ee0a4e067f41b144ca737d253de
+guid: d9630d2eb7986a94db38b64de9ba5588
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scout-Idle_sheet_0
+      name: Scout-Idle_sheet-noeye_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 76
-        height: 87
+        width: 168
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c776ecd1a2a7a304f85d4af57b2a9fcb
-      internalID: -1834648294
+      spriteID: 64514bd8e786cb749923c5f087e20718
+      internalID: 205061997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout-Idle_sheet_1
+      name: Scout-Idle_sheet-noeye_1
       rect:
         serializedVersion: 2
-        x: 76
+        x: 168
         y: 0
-        width: 76
-        height: 87
+        width: 168
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d508eef134e9684488b8d3aa3cb34fdd
-      internalID: -1287846991
+      spriteID: a5311341beb28564faa86fe54766b233
+      internalID: 239355894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout-Idle_sheet_2
+      name: Scout-Idle_sheet-noeye_2
       rect:
         serializedVersion: 2
-        x: 152
+        x: 336
         y: 0
-        width: 76
-        height: 87
+        width: 168
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e763925e5c1c5ff4fa04ae4362deefe0
-      internalID: 1112277102
+      spriteID: 656019f6b162a26498147d109cb350ac
+      internalID: 7729185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout-Idle_sheet_3
+      name: Scout-Idle_sheet-noeye_3
       rect:
         serializedVersion: 2
-        x: 228
+        x: 504
         y: 0
-        width: 76
-        height: 87
+        width: 168
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fc1cb1b30a5dda409d9af35fae835b2
-      internalID: -1285688332
+      spriteID: 22426fa32067b4244a7a383ead03839b
+      internalID: -888706538
       vertices: []
       indices: 
       edges: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 57e96531e92735b439c6211614502652
+    spriteID: 08bf6ce63d5a8484c9c6fb0a374e58e4
     internalID: 0
     vertices: []
     indices: 
@@ -198,10 +198,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Scout-Idle_sheet_0: -1834648294
-      Scout-Idle_sheet_1: -1287846991
-      Scout-Idle_sheet_2: 1112277102
-      Scout-Idle_sheet_3: -1285688332
+      Scout-Idle_sheet-noeye_0: 205061997
+      Scout-Idle_sheet-noeye_1: 239355894
+      Scout-Idle_sheet-noeye_2: 7729185
+      Scout-Idle_sheet-noeye_3: -888706538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

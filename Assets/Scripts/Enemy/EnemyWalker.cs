@@ -28,16 +28,19 @@ namespace Enemy
             base.Die();
         }
 
-        public override void Attack()
+      public override void Attack()
         {
             spriteDirectionalController.animator.SetTrigger("Attack");
-
-            // Fiziksel saldırı alanı
-            Vector3 boxCenter = transform.position + transform.forward * 1.2f;
-            Vector3 boxSize = new Vector3(1.5f, 2f, 1.5f); // x-y-z boyut
-
-            Collider[] hits = Physics.OverlapBox(boxCenter, boxSize / 2, transform.rotation);
-
+        
+            // Calculate direction to the player
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        
+            // Adjust the box center to face the player
+            Vector3 boxCenter = transform.position + directionToPlayer * 1.2f;
+            Vector3 boxSize = new Vector3(1.5f, 2f, 1.5f); // x-y-z dimensions
+        
+            Collider[] hits = Physics.OverlapBox(boxCenter, boxSize / 2, Quaternion.identity);
+        
             foreach (var hit in hits)
             {
                 if (hit.CompareTag("Player"))

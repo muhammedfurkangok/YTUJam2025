@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   weaponName: Shotgun
-  maxAmmo: 60
+  maxAmmo: 50
   reloadAmmo: 2
   fireRate: 0.25
   reloadTime: 2
