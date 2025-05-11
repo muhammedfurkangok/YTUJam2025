@@ -62,13 +62,16 @@ public class PostProcessVFXController : MonoBehaviour
         DOTween.To(() => bloom.threshold.value, x => bloom.threshold.value = x, 0f, duration);
     }
 
-    private void ResetToNormal()
+    /// <summary>
+    /// Bu fonksiyonu oyuncu kart seçtikten sonra çağırarak postprocessi düzelt.
+    /// </summary>
+    public void ResetPostProcessToNormal()
     {
         if (!volume.sharedProfile.TryGet(out Bloom bloom)) return;
 
-        bloom.intensity.value = defaultBloomIntensity;
-        bloom.scatter.value = defaultBloomScatter;
-        bloom.threshold.value = defaultBloomThreshold;
+        DOTween.To(() => bloom.intensity.value, x => bloom.intensity.value = x, defaultBloomIntensity, 1f);
+        DOTween.To(() => bloom.scatter.value, x => bloom.scatter.value = x, defaultBloomScatter, 1f);
+        DOTween.To(() => bloom.threshold.value, x => bloom.threshold.value = x, defaultBloomThreshold, 1f);
 
         if (!volume.sharedProfile.TryGet(out ChromaticAberration ca)) return;
 
@@ -78,6 +81,6 @@ public class PostProcessVFXController : MonoBehaviour
 
     private void OnDisable()
     {
-        ResetToNormal();
+        ResetPostProcessToNormal();
     }
 }

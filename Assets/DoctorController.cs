@@ -14,20 +14,14 @@ public class DoctorController : MonoBehaviour
     [Header("EFFECTS")]
     [SerializeField] float stabEffectDuration = 0.5f;
     [SerializeField] float enjectEffectDuration = 1f;
-    [SerializeField] float endEffectDuration =1f;
+    [SerializeField] float endEffectDuration = 1f;
 
 
     public static event Action<float> OnDoctorStab;
     public static event Action<float> OnDoctorEnject;
     public static event Action<float> OnDoctorAttackEnd;
 
-
-    private void Start()
-    {
-        Invoke(nameof(MoveDoc), 1f);
-    }
-
-    public void MoveDoc()
+    public void DocMove()
     {
         animator.SetTrigger("Walk");
         doTweenPath.tween.Play().OnComplete(() => animator.SetTrigger("Attack"));
