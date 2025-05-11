@@ -1,3 +1,6 @@
+using System;
+using Enemy;
+using Unity.Mathematics;
 using UnityEngine;
 using Utilities;
 using Weapon;
@@ -40,13 +43,32 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         ShowMuzzleFlash();
         PlayFireEffects();
 
-        Bullet bullet = Instantiate(data.bulletPrefab, firePoint.position, refBullet.rotation);
-        bullet.Initialize(firePoint.forward);
+        RaycastBullet();
+
+        Bullet visualBullet = Instantiate(data.bulletPrefab, firePoint.position, refBullet.rotation);
+        visualBullet.Initialize(firePoint.forward);
 
         UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo, data.isNoNeedAmmo);
 
         if (currentAmmo == 0)
             Reload();
+    }
+
+    private void RaycastBullet()
+    {
+        RaycastHit hit;
+        
+        if (Physics.Raycast(firePoint.position, firePoint.forward, out hit))
+        {
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                EnemyBase enemy = hit.collider.GetComponentInParent<EnemyBase>();
+                if (enemy != null && !enemy.isDead)
+                {
+                    enemy.TakeDamage(data.damage);
+                }
+            }
+        }
     }
 
     public virtual void Reload()

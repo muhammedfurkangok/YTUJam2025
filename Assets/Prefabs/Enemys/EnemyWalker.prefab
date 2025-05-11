@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1018463701999494541}
   - component: {fileID: 8662925782175896645}
   - component: {fileID: 7020249788317940305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Head
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 334857286595556893}
   - component: {fileID: 6898814952931903932}
   - component: {fileID: 8071003955577149695}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gfx
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 1608310086905199570}
   - component: {fileID: 637205400224089036}
   - component: {fileID: 2668236700196604134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}

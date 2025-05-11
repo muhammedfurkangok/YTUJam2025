@@ -32,7 +32,6 @@ namespace Weapon
                 if (enemy.isDead) return;
 
                 enemy.TakeDamage(100, true);
-                Destroy(gameObject);
 
                 var MMFPlayer = FindObjectOfType<MMF_Player>();
 
@@ -42,7 +41,7 @@ namespace Weapon
 
                 MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f);
             }
-            else if (other.CompareTag("Enemy"))
+            else if (other.CompareTag("Enemy")) 
             {
                 EnemyBase enemy = other.GetComponentInParent<EnemyBase>();
                 if (enemy != null)
