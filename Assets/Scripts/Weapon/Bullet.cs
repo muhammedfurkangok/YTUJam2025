@@ -63,9 +63,17 @@ namespace Weapon
                 }
 
 
+               
+            }
+            else if (other.CompareTag("Player"))
+            {
+               return;
+            }
+            if(other.CompareTag("Wall"))
+            {
                 Destroy(gameObject);
             }
-           
+         
         }
     }
 }
