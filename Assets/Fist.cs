@@ -5,25 +5,25 @@ using System.Collections;
     public class Fist : WeaponBase
     {
         private bool isKillScoutAnimationPlaying = false;
+        private float lastKillScoutTime = Mathf.NegativeInfinity; // Tracks the last animation time
+        private const float killScoutCooldown = 5f; // Cooldown duration in seconds
     
         protected override void PlayFireEffects()
         {
-            if (isKillScoutAnimationPlaying)
-                return; // Prevent other animations while KillScout is active
+            if (isKillScoutAnimationPlaying || Time.time < lastKillScoutTime + killScoutCooldown)
+                return; // Prevent triggering during cooldown or while animation is playing
     
             base.PlayFireEffects();
             WeaponManager.Instance.ShakeCamera();
             AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
     
-            if (!isKillScoutAnimationPlaying)
-            {
-                StartCoroutine(PlayKillScoutAnimation());
-            }
+            StartCoroutine(PlayKillScoutAnimation());
         }
     
         private IEnumerator PlayKillScoutAnimation()
         {
             isKillScoutAnimationPlaying = true;
+            lastKillScoutTime = Time.time; // Update the last animation time
     
             // Trigger the KillScout animation
             weaponAnimator.SetTrigger("KillScout");
