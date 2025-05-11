@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 
 public class CutSceneController : SingletonMonoBehaviour<CutSceneController>
@@ -7,13 +8,15 @@ public class CutSceneController : SingletonMonoBehaviour<CutSceneController>
     [SerializeField] CutSceneCameraController cameraCut;
     [SerializeField] DoctorController doc;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.F)) CutSceneStart();
+        CutSceneStart();
     }
 
+  
     public void CutSceneStart() //all are auto-reseted when done.
     {
+        PlayerCardEffectsController.Instance.RestartAll();
         cameraCut.Cut();
         canvasCut.Cut();
         doc.DocMove();

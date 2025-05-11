@@ -43,6 +43,8 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
         yield return new WaitForSeconds(1.5f);
         transform.eulerAngles = startRot;
         transform.localPosition = startPos;
+        CutSceneController.Instance.CutSceneStart();
+        
     }
 
     private void Blackout()
