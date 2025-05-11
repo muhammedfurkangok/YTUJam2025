@@ -43,7 +43,7 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         ShowMuzzleFlash();
         PlayFireEffects();
 
-        // RaycastBullet();
+        //RaycastBullet();
 
         Bullet visualBullet = Instantiate(data.bulletPrefab, firePoint.position, refBullet.rotation);
         visualBullet.Initialize(firePoint.forward);
@@ -54,22 +54,23 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
             Reload();
     }
 
-    // private void RaycastBullet()
-    // {
-    //     RaycastHit hit;
-    //     
-    //     if (Physics.Raycast(firePoint.position, firePoint.forward, out hit))
-    //     {
-    //         if (hit.collider.CompareTag("Enemy"))
-    //         {
-    //             EnemyBase enemy = hit.collider.GetComponentInParent<EnemyBase>();
-    //             if (enemy != null && !enemy.isDead)
-    //             {
-    //                 enemy.TakeDamage(data.damage);
-    //             }
-    //         }
-    //     }
-    // }
+    //private void RaycastBullet()
+    //{
+    //    RaycastHit hit;
+    //    var ray = Camera.main.ScreenPointToRay(new(Screen.width / 2, Screen.height / 2));
+    //    Debug.DrawRay(ray.origin,ray.direction,Color.red);
+    //    if (Physics.Raycast(ray,out hit))
+    //    {
+    //        if (hit.collider.CompareTag("Enemy"))
+    //        {
+    //            EnemyBase enemy = hit.collider.GetComponentInParent<EnemyBase>();
+    //            if (enemy != null && !enemy.isDead)
+    //            {
+    //                enemy.TakeDamage(100f);
+    //            }
+    //        }
+    //    }
+    //}
 
     public virtual void Reload()
     {

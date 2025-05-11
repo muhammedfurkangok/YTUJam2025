@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 434ef0d733438b745b9e32a2b8919dbb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CardLevels/Gameplay 2.unity
     guid: 162d536e011b0f54383a301eb3e425aa
   m_configObjects:
