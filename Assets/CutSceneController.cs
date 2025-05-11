@@ -17,8 +17,10 @@ public class CutSceneController : SingletonMonoBehaviour<CutSceneController>
     public void CutSceneStart() //all are auto-reseted when done.
     {
         PlayerCardEffectsController.Instance.RestartAll();
+
         cameraCut.Cut();
         canvasCut.Cut();
+
         doc.DocMove();
     }
 }

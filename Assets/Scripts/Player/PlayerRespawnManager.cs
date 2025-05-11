@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -10,19 +11,6 @@ namespace Player
         }
         public void OnDie()
         {
-            DeathCameraCutscene.Instance.DieAnim();
-        }
-        
-        public void GetVaccinated()
-        {
-            //play animation
-            CutSceneController.Instance.CutSceneStart();
-        }
-        public void OnRespawn()
-        {
-            GetVaccinated();
-            //card;
-            //card equal thing happened.
         }
     }
 }
