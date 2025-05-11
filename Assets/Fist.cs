@@ -1,36 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Utilities;
-
-public class Fist : WeaponBase
-{
-    private bool isKillScoutAnimationPlaying = false;
-
-    protected override void PlayFireEffects()
+    using UnityEngine;
+    using Utilities;
+    
+    public class Fist : WeaponBase
     {
-        base.PlayFireEffects();
-        // Rifle özel sarsıntısı
-        WeaponManager.Instance.ShakeCamera();
-        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
-
-        // Start the KillScout animation if not already playing
-        if (!isKillScoutAnimationPlaying)
+        private bool isKillScoutAnimationPlaying = false;
+    
+        protected override void PlayFireEffects()
         {
-            StartCoroutine(PlayKillScoutAnimation());
+            if (isKillScoutAnimationPlaying)
+                return; // Prevent other animations while KillScout is active
+    
+            base.PlayFireEffects();
+            WeaponManager.Instance.ShakeCamera();
+            AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
+    
+            if (!isKillScoutAnimationPlaying)
+            {
+                StartCoroutine(PlayKillScoutAnimation());
+            }
+        }
+    
+        private IEnumerator PlayKillScoutAnimation()
+        {
+            isKillScoutAnimationPlaying = true;
+    
+            // Trigger the KillScout animation
+            weaponAnimator.SetTrigger("KillScout");
+    
+            // Wait for the animation to complete (1 second)
+            yield return new WaitForSeconds(1f);
+    
+            isKillScoutAnimationPlaying = false;
         }
     }
-
-    private IEnumerator PlayKillScoutAnimation()
-    {
-        isKillScoutAnimationPlaying = true;
-
-        // Wait for 10 seconds
-        yield return new WaitForSeconds(10f);
-
-        // Trigger the KillScout animation
-        weaponAnimator.SetTrigger("KillScout");
-
-        isKillScoutAnimationPlaying = false;
-    }
-}

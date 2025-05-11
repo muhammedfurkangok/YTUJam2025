@@ -83,7 +83,7 @@ namespace Enemy
             base.Die();
 
             HealhBarCloseAnimation();
-            MovementController.Instance.KillYourselfAnim();
+            SuicideManager.Instance.Suicide();
         }
 
         private void OnDrawGizmosSelected()
