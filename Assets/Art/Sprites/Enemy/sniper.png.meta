@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 294e8fe5ecb22d349a401b6e736d8c85
+guid: 0e2c8277a86b5bc44abdda5fdf63d277
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle-Sheet_0
+      name: sniper_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ca39b8602c928945ba580f802f3a379
-      internalID: -2058395353
+      spriteID: 4da8b7be533867e47a6fd367cf3f2a6f
+      internalID: 923510702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle-Sheet_1
+      name: sniper_1
       rect:
         serializedVersion: 2
         x: 256
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a739e09c7b8c14f91c573ff536185e
-      internalID: -551305941
+      spriteID: 0e188743b9bd2e1468a12607561fc105
+      internalID: -852845184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle-Sheet_2
+      name: sniper_2
       rect:
         serializedVersion: 2
         x: 512
@@ -156,8 +156,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fbbfff8423458643bc376a7d6d92d90
-      internalID: 1608164985
+      spriteID: 2e1de3db5e17a7a438d9d099d84ddb87
+      internalID: 1979641181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sniper_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409eac82457182945802834243afbf2d
+      internalID: 883316373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sniper_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0b77c9b2316a846a5139b7457f67f5
+      internalID: -1982942076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sniper_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c71786e92b75b44a23f38f9d87c828
+      internalID: -1959145054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sniper_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c63f2cad5bb2b640ace58981bdf28c5
+      internalID: 959313324
       vertices: []
       indices: 
       edges: []
@@ -166,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6b3b2171e13d8dd43ac8afab5a97132d
+    spriteID: 872ad935a68145644ae64315e8eb97b8
     internalID: 0
     vertices: []
     indices: 
@@ -176,9 +264,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      idle-Sheet_0: -2058395353
-      idle-Sheet_1: -551305941
-      idle-Sheet_2: 1608164985
+      sniper_0: 923510702
+      sniper_1: -852845184
+      sniper_2: 1979641181
+      sniper_3: 883316373
+      sniper_4: -1982942076
+      sniper_5: -1959145054
+      sniper_6: 959313324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

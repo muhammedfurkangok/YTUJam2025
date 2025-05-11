@@ -2221,26 +2221,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5313840158571331524, guid: d0b10e64317e42843839a8993c588856, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 8736393243107248132, guid: d0b10e64317e42843839a8993c588856, type: 3}
+      propertyPath: m_Size.x
+      value: 0.76
       objectReference: {fileID: 0}
-    - target: {fileID: 5313840158571331524, guid: d0b10e64317e42843839a8993c588856, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 020fd3e441df5b242bb1c112dfe4fec8, type: 2}
-    - target: {fileID: 7140489450612580255, guid: d0b10e64317e42843839a8993c588856, type: 3}
-      propertyPath: isDead
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7456015334001099682, guid: d0b10e64317e42843839a8993c588856, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 8736393243107248132, guid: d0b10e64317e42843839a8993c588856, type: 3}
+      propertyPath: m_Size.y
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 8736393243107248132, guid: d0b10e64317e42843839a8993c588856, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2058395353, guid: 294e8fe5ecb22d349a401b6e736d8c85, type: 3}
+      objectReference: {fileID: -1834648294, guid: 1aa88ee0a4e067f41b144ca737d253de, type: 3}
     - target: {fileID: 8736393243107248132, guid: d0b10e64317e42843839a8993c588856, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -3505,7 +3497,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1439674760}
   - component: {fileID: 1439674762}
-  - component: {fileID: 1439674761}
   m_Layer: 0
   m_Name: BulletPoint (1)
   m_TagString: Untagged
@@ -3528,51 +3519,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 819000941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.193}
---- !u!23 &1439674761
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439674759}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f47747e933b49fc4d80c4175b842f8a6, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1439674762
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4848,9 +4794,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 619958442021338624, guid: 31b399316e9ba6742833f9f8d858fb51, type: 3}
-      propertyPath: attackRange
-      value: 15
+    - target: {fileID: 1282353317084726319, guid: 31b399316e9ba6742833f9f8d858fb51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 923510702, guid: 0e2c8277a86b5bc44abdda5fdf63d277, type: 3}
+    - target: {fileID: 1282353317084726319, guid: 31b399316e9ba6742833f9f8d858fb51, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1608175498612867545, guid: 31b399316e9ba6742833f9f8d858fb51, type: 3}
       propertyPath: m_Name
