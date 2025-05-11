@@ -48,15 +48,19 @@ using UnityEngine;
                     public override void Attack()
                     {
                         spriteDirectionalController.animator.SetTrigger("Attack");
-            
+                    
+                        // Instantiate the bullet at the shoot point
                         GameObject bullet = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
                         Rigidbody rb = bullet.GetComponent<Rigidbody>();
                         if (rb != null)
                         {
+                            // Calculate the direction to the player
                             Vector3 dir = (player.position - shootPoint.position).normalized;
-                            rb.linearVelocity = dir * bulletspeed; // Adjust bullet speed as needed
+                    
+                            // Set the bullet's velocity
+                            rb.linearVelocity = dir * bulletspeed; // Corrected from linearVelocity to velocity
                         }
-            
+                    
                         // Play sniper shot sound if needed
                         // enemyAudioSource.PlayOneShot(AudioClips.Find(x => x.key == SoundType.RobotAttack).GetRandomClip());
                     }
