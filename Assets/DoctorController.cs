@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class DoctorController : MonoBehaviour
@@ -43,6 +44,11 @@ public class DoctorController : MonoBehaviour
         OnDoctorAttackEnd?.Invoke(endEffectDuration);
         animator.ResetTrigger("Walk");
         animator.ResetTrigger("Attack");
+        StartCoroutine(RewindRoutine());
+    }
+    IEnumerator RewindRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
         tweee.Rewind();
     }
 }
