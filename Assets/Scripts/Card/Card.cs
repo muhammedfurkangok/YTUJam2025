@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     [Header("Reveal Settings")]
     public float preRevealPause = 0.2f;
     public float slowRevealDuration = 1.5f;
+    public float dissepearDuration = 0.5f;
     public Ease revealEase = Ease.InOutElastic;
     public Image allInOneMaterial;
 
@@ -66,6 +67,7 @@ public class Card : MonoBehaviour
                 revealSequence.Append(cardTransform.DORotate(new Vector3(0, 0, 0), slowRevealDuration * 0.5f)
                     .SetEase(revealEase));
 
+                revealSequence.AppendCallback((() =>  allInOneMaterial.material.EnableKeyword("SHINE_ON")));
                 revealSequence.OnComplete(() =>
                 {
                     DOVirtual.Float(0, 1, slowRevealDuration, (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); }).OnComplete(() =>
@@ -91,7 +93,7 @@ public class Card : MonoBehaviour
                     (value) => { allInOneMaterial.material.SetFloat("_ShineLocation", value); })
                     .OnComplete(() =>
                     {
-                        canvasGroup.DOFade(0, slowRevealDuration).OnComplete(() =>
+                        canvasGroup.DOFade(0, dissepearDuration).OnComplete(() =>
                         {
                             gameObject.SetActive(false);
                             CutSceneCameraController.Instance.ActivateObjects();
