@@ -43,6 +43,9 @@ namespace Weapon
             }
             else if (other.CompareTag("Enemy")) 
             {
+                if(WeaponManager.Instance.isOnlyHsMode) return;
+                
+                
                 EnemyBase enemy = other.GetComponentInParent<EnemyBase>();
                 if (enemy != null)
                 {

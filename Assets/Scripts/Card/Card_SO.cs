@@ -28,11 +28,12 @@ public struct CardData
 
 public enum CardEffectType
 {
-    None,
-    SpawnUnit,
-    HealPlayer,
-    DamageEnemy,
-    ChangeWeather,
-    FocusOnBuilding,
+    Default = 0,
+    MoreBrain = 1,
+    Berserk = 2,
+    BoomHeadshot = 3,
+    GrimReaper = 4,
+    DoctorsSyringe = 5,
+    DoctorFinal = 6,
     // istediğin kadar ekle
 }

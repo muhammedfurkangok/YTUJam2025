@@ -1,3 +1,4 @@
+using System;
 using KBCore.Refs;
 using Runtime.System.InputSystem;
 using Unity.Cinemachine;
@@ -27,12 +28,19 @@ namespace Player
         private bool finishedBoost;
         private Coroutine boostCoroutine;
         private bool isWalkingSoundPlaying;
+        public bool isBoostingActive = true;
+
+        public bool isGreamReaperActive = false;
 
         void Start()
         {
             controller = GetComponent<CharacterController>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            PlayerCardEffectsController.Berserk += DisableRun;
+            PlayerCardEffectsController.GrimReaper += RunningCausesDamage;
+            PlayerCardEffectsController.RestartAllStats += RestartStats;
         }
 
         void Update()
@@ -67,12 +75,17 @@ namespace Player
             }
 
 
-            if (InputManager.Instance.IsRunning() && PlayerStatsManager.Instance.stamina > 0)
+            if (InputManager.Instance.IsRunning() && PlayerStatsManager.Instance.stamina > 0 && isBoostingActive)
             {
                 moveDirection *= runSpeedMultiplier;
                 isRunning = true;
                 speedEffect.SetActive(true);
                 characterAnimator.SetBool("IsRunning", true);
+
+                if (isGreamReaperActive)
+                {
+                    PlayerStatsManager.Instance.DecreaseHealth(1);
+                }
             }
             else
             {
@@ -107,6 +120,34 @@ namespace Player
         public void PlayWalkSound()
         {
             AudioManager.Instance.PlayOneShotSound(SoundType.Walk); 
+        }
+
+        public void DisableRun()
+        {
+            Debug.Log("Disable run");
+            isRunning = false;
+            speedEffect.SetActive(false);
+            characterAnimator.SetBool("IsRunning", false);
+        }
+        public void RestartStats()
+        {
+            isBoostingActive = true;
+            isGreamReaperActive = false;
+        }
+        
+        public void RunningCausesDamage()
+        {
+            if (isRunning && isGreamReaperActive)
+            {
+                PlayerStatsManager.Instance.DecreaseHealth(1);
+            }
+        }
+
+        private void OnDisable()
+        {
+            PlayerCardEffectsController.Berserk -= DisableRun;
+            PlayerCardEffectsController.GrimReaper -= RunningCausesDamage;
+            PlayerCardEffectsController.RestartAllStats -= RestartStats;
         }
     }
 }
