@@ -4,11 +4,14 @@ namespace Player
 {
     public class PlayerRespawnManager : MonoBehaviour
     {
-
+        private void Awake()
+        {
+            PlayerStatsManager.Instance.OnDeath += OnDie;
+        }
         public void OnDie()
         {
-            //die anim
-            //DeathCameraCutscene.DieAnim
+            //CutSceneCameraController.Instance.DisableObjects();
+            DeathCameraCutscene.Instance.DieAnim();
         }
         
         public void GetVaccinated()
