@@ -17,9 +17,17 @@ public class DeathCameraCutscene : MonoBehaviour
     [SerializeField] Ease blackoutEase = Ease.InSine;
 
 
+    private Vector3 startPos, startRot;
+    private void Start()
+    {
+        startRot = transform.eulerAngles;
+        startPos = transform.position;
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.E)) DieAnim();
+        if (Input.GetKey(KeyCode.T)) ResetCamera(); 
     }
     //oyuncu üstündeki kamerayı kımıldatıyor.
     public void DieAnim()
@@ -27,6 +35,11 @@ public class DeathCameraCutscene : MonoBehaviour
         Blackout();
         transform.DORotate(rot, duration).SetEase(rotateEase);
         transform.DOMove(pos, duration).SetEase(moveEase);
+    }
+    public void ResetCamera()
+    {
+        transform.eulerAngles = startRot;
+        transform.position = startPos;
     }
 
     private void Blackout()
