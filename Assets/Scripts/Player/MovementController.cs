@@ -25,10 +25,7 @@ namespace Player
 
         private float verticalVelocity;
 
-        private bool isRunning;
-        private bool isBoosting;
-        private bool finishedBoost;
-        private Coroutine boostCoroutine;
+        public bool isRunning;
         private bool isWalkingSoundPlaying;
         public bool isBoostingActive = true;
         public bool isGreamReaperActive = false;

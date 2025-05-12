@@ -46,7 +46,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
             DoctorSyringeHealthDecrease();
 
 
-        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f)
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && MovementController.Instance.isRunning)
         {
             if (!isUsingStamina)
             {
