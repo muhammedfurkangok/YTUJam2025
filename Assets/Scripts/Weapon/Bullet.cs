@@ -24,7 +24,6 @@ namespace Weapon
             // Visual mermi yalnızca duvar gibi objelerde yok edilir
             if (!other.CompareTag("Player"))
             {
-                Destroy(gameObject);
             }
         }
     }
