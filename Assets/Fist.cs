@@ -10,14 +10,23 @@ public class Fist : WeaponBase
 
     protected override void PlayFireEffects()
     {
-        base.PlayFireEffects(); // Her zaman fire animasyonu çalışır
-        weaponAnimator.SetTrigger("Fire");
+        base.PlayFireEffects(); 
+       
+        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
+        WeaponManager.Instance.ShakeCamera(); 
 
-        // KillScout koşulları
+    }
+
+    public void KillScoutAnimation()
+    {
         if (!isKillScoutAnimationPlaying && Time.time >= lastKillScoutTime + killScoutCooldown)
         {
             StartCoroutine(PlayKillScoutAnimation());
         }
+         
+        
+        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
+        WeaponManager.Instance.ShakeCamera(); 
     }
 
     private IEnumerator PlayKillScoutAnimation()
@@ -26,8 +35,6 @@ public class Fist : WeaponBase
         lastKillScoutTime = Time.time;
 
         weaponAnimator.SetTrigger("KillScout"); // Özel animasyonu tetikle
-        WeaponManager.Instance.ShakeCamera(); // Kamera sarsıntısı
-        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit); // Ses efekti
 
         yield return new WaitForSeconds(1f); // Animasyon süresi kadar bekle
         isKillScoutAnimationPlaying = false;

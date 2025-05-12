@@ -9,7 +9,7 @@ using Weapon;
 public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
 {
     public WeaponBase[] weapons;
-    private int currentWeaponIndex;
+    public int currentWeaponIndex;
     private WeaponBase activeWeapon;
     [SerializeField] private CinemachineCamera cinemachineCamera;
 

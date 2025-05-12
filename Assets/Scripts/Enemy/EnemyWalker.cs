@@ -26,6 +26,12 @@ namespace Enemy
         protected override void Die()
         {
             base.Die();
+            
+            if(WeaponManager.Instance.currentWeaponIndex == 0)
+            {
+                Fist fist = (Fist)WeaponManager.Instance.weapons[0];
+                fist.KillScoutAnimation();
+            }
         }
 
       public override void Attack()
