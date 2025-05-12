@@ -1,13 +1,12 @@
-using System;
-using Enemy;
-using Unity.Mathematics;
 using UnityEngine;
 using Utilities;
 using Weapon;
+using Enemy;
 
 public abstract class WeaponBase : MonoBehaviour, IWeapon
 {
-    [Header("Setup")] public WeaponData data;
+    [Header("Weapon Setup")]
+    public WeaponData data;
     public Transform firePoint;
     public Transform refBullet;
     public Animator weaponAnimator;
@@ -17,60 +16,96 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
     protected bool isReloading = false;
     protected bool isFiring = false;
 
-    private GameObject lightFlashInstance;
+    private GameObject muzzleFlashInstance;
 
     protected virtual void Start()
     {
         currentAmmo = data.reloadAmmo;
+
         if (data.muzzleFlashPrefab != null)
         {
-            lightFlashInstance = Instantiate(data.muzzleFlashPrefab, firePoint);
-            lightFlashInstance.transform.SetParent(firePoint);
-            lightFlashInstance.SetActive(false);
+            muzzleFlashInstance = Instantiate(data.muzzleFlashPrefab, firePoint);
+            muzzleFlashInstance.SetActive(false);
         }
-        
-        
     }
 
     public virtual void Fire()
     {
+        // Fire conditions check
         if (isReloading || currentAmmo <= 0 || Time.time < lastFireTime + data.fireRate)
             return;
+
         if (!data.isNoNeedAmmo)
             currentAmmo--;
+
         lastFireTime = Time.time;
 
         ShowMuzzleFlash();
         PlayFireEffects();
 
-        //RaycastBullet();
+        // RAYCAST: Crosshair hizasından ateşle
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            HandleHit(hit);
 
-        Bullet visualBullet = Instantiate(data.bulletPrefab, firePoint.position, refBullet.rotation);
-        visualBullet.Initialize(firePoint.forward);
+            // Görsel mermi, hedefe doğru instantiate edilir
+            Vector3 direction = (hit.point - firePoint.position).normalized;
+            SpawnVisualBullet(direction);
+        }
+        else
+        {
+            // Hedef yoksa ileri yönde visual mermi gönder
+            SpawnVisualBullet(firePoint.forward);
+        }
 
+        // UI güncelle
         UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo, data.isNoNeedAmmo);
 
         if (currentAmmo == 0)
             Reload();
     }
 
-    //private void RaycastBullet()
-    //{
-    //    RaycastHit hit;
-    //    var ray = Camera.main.ScreenPointToRay(new(Screen.width / 2, Screen.height / 2));
-    //    Debug.DrawRay(ray.origin,ray.direction,Color.red);
-    //    if (Physics.Raycast(ray,out hit))
-    //    {
-    //        if (hit.collider.CompareTag("Enemy"))
-    //        {
-    //            EnemyBase enemy = hit.collider.GetComponentInParent<EnemyBase>();
-    //            if (enemy != null && !enemy.isDead)
-    //            {
-    //                enemy.TakeDamage(100f);
-    //            }
-    //        }
-    //    }
-    //}
+    private void HandleHit(RaycastHit hit)
+    {
+        if (hit.collider.CompareTag("Head"))
+        {
+            var enemy = hit.collider.GetComponentInParent<EnemyBase>();
+            if (enemy != null && !enemy.isDead)
+            {
+                enemy.TakeDamage(100f, true);
+
+                var feedback = FindObjectOfType<MoreMountains.Feedbacks.MMF_Player>();
+                var text = feedback.GetFeedbackOfType<MoreMountains.Feedbacks.MMF_FloatingText>();
+                text.Value = "HEADSHOT!!!";
+                feedback.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f);
+
+                AudioManager.Instance.PlayOneShotSound(SoundType.HeadExplosion);
+            }
+        }
+        else if (hit.collider.CompareTag("Enemy"))
+        {
+            if (WeaponManager.Instance.isOnlyHsMode) return;
+
+            var enemy = hit.collider.GetComponentInParent<EnemyBase>();
+            if (enemy != null && !enemy.isDead)
+            {
+                float randomDamage = Random.Range(20f, 45f);
+                enemy.TakeDamage(randomDamage);
+
+                var feedback = FindObjectOfType<MoreMountains.Feedbacks.MMF_Player>();
+                var text = feedback.GetFeedbackOfType<MoreMountains.Feedbacks.MMF_FloatingText>();
+                text.Value = randomDamage.ToString("F0");
+                feedback.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f, randomDamage);
+            }
+        }
+    }
+
+    private void SpawnVisualBullet(Vector3 direction)
+    {
+        var bullet = Instantiate(data.bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
+        bullet.Initialize(direction);
+    }
 
     public virtual void Reload()
     {
@@ -83,22 +118,26 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         Invoke(nameof(FinishReload), data.reloadTime);
     }
 
-    public virtual void ResetFiringState()
+    private void FinishReload()
     {
-        isFiring = false;
-        weaponAnimator.ResetTrigger("Fire");
+        int ammoToReload = Mathf.Min(data.reloadAmmo, data.maxAmmo);
+        data.maxAmmo -= ammoToReload - currentAmmo;
+        currentAmmo = ammoToReload;
+
+        UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo);
+        isReloading = false;
     }
 
     protected virtual void ShowMuzzleFlash()
     {
-        if (lightFlashInstance == null) return;
-        lightFlashInstance.SetActive(true);
+        if (muzzleFlashInstance == null) return;
+        muzzleFlashInstance.SetActive(true);
         Invoke(nameof(HideMuzzleFlash), 0.05f);
     }
 
     private void HideMuzzleFlash()
     {
-        if (lightFlashInstance) lightFlashInstance.SetActive(false);
+        if (muzzleFlashInstance) muzzleFlashInstance.SetActive(false);
     }
 
     protected virtual void PlayFireEffects()
@@ -108,16 +147,10 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         Camera.main?.DoShakeCamera(0.1f, 0.1f, 5, 90f);
     }
 
-    private void FinishReload()
+       public virtual void ResetFiringState()
     {
-        int ammoToReload = Mathf.Min(data.reloadAmmo, data.maxAmmo);
-        data.maxAmmo -= ammoToReload - currentAmmo;
-        currentAmmo = ammoToReload;
-        UIManager.Instance.UpdateAmmoText(currentAmmo, data.maxAmmo);
-        isReloading = false;
+        isFiring = false;
+        weaponAnimator.ResetTrigger("Fire");
     }
-
     public bool IsAuto() => data.isAuto;
-    
-   
 }

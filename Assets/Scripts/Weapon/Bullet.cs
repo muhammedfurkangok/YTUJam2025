@@ -1,7 +1,4 @@
-using Enemy;
-using MoreMountains.Feedbacks;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Weapon
 {
@@ -9,71 +6,26 @@ namespace Weapon
     {
         public float speed = 20f;
         public float lifeTime = 3f;
-        public float damage = 25f;
+
         private Rigidbody rb;
 
         public void Initialize(Vector3 direction)
         {
-            rb = GetComponent<Rigidbody>();
-            if (rb == null)
-            {
-                rb = gameObject.AddComponent<Rigidbody>();
-            }
-
+            rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rb.linearVelocity = direction * speed;
+
             Destroy(gameObject, lifeTime);
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Head"))
-            {
-                EnemyBase enemy = other.GetComponentInParent<EnemyBase>();
-                if (enemy.isDead) return;
-
-                enemy.TakeDamage(100, true);
-
-                var MMFPlayer = FindObjectOfType<MMF_Player>();
-
-                MMF_FloatingText floatingText = MMFPlayer.GetFeedbackOfType<MMF_FloatingText>();
-
-                floatingText.Value = "HEADSHOT!!!";
-
-                MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f);
-                AudioManager.Instance.PlayOneShotSound(SoundType.HeadExplosion);
-            }
-            else if (other.CompareTag("Enemy")) 
-            {
-                if(WeaponManager.Instance.isOnlyHsMode) return;
-                
-                
-                EnemyBase enemy = other.GetComponentInParent<EnemyBase>();
-                if (enemy != null)
-                {
-                    if (enemy.isDead) return;
-                    enemy.TakeDamage(damage);
-                    var MMFPlayer = FindObjectOfType<MMF_Player>();
-                    if (MMFPlayer != null)
-                    {
-                        damage = Random.Range(20, 45);
-                        MMF_FloatingText floatingText = MMFPlayer.GetFeedbackOfType<MMF_FloatingText>();
-                        floatingText.Value = damage.ToString();
-                        MMFPlayer.PlayFeedbacks(enemy.agent.transform.position + Vector3.up * 1.1f, damage);
-                    }
-                }
-
-
-               
-            }
-            else if (other.CompareTag("Player"))
-            {
-               return;
-            }
-            if(other.CompareTag("Wall"))
+            // Visual mermi yalnızca duvar gibi objelerde yok edilir
+            if (!other.CompareTag("Player"))
             {
                 Destroy(gameObject);
             }
-         
         }
     }
 }
