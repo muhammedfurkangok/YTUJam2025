@@ -7,12 +7,10 @@ using Utilities;
 
 public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
 {
-    [Header("Health Settings")]
-    public int health = 100;
+    [Header("Health Settings")] public int health = 100;
     public int maxHealth = 100;
 
-    [Header("Stamina Settings")]
-    public float stamina = 100f;
+    [Header("Stamina Settings")] public float stamina = 100f;
     public float maxStamina = 100f;
 
     private float regenDelay = 1f;
@@ -25,11 +23,11 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     public event Action OnDeath;
 
 
-    private void Start()
+    private void OnEnable()
     {
         PlayerCardEffectsController.MoreBrain += MoreBrainStats;
         PlayerCardEffectsController.RestartAllStats += RestartAllStats;
-        PlayerCardEffectsController.DoctorsSyringe+= DoctorsSyringe;
+        PlayerCardEffectsController.DoctorsSyringe += DoctorsSyringe;
     }
 
     private void DoctorsSyringe()
@@ -44,9 +42,10 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
 
     void Update()
     {
-        DoctorSyringeHealthDecrease();
-        
-        
+        if (isDoctorSyringe)
+            DoctorSyringeHealthDecrease();
+
+
         if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f)
         {
             if (!isUsingStamina)

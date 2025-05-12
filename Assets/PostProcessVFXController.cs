@@ -62,7 +62,6 @@ public class PostProcessVFXController : SingletonMonoBehaviour<PostProcessVFXCon
         DOTween.To(() => bloom.threshold.value, x => bloom.threshold.value = x, 0f, duration).OnComplete( () =>
         {
            CardManager.Instance.RandomCard();
-           
         });
         
         

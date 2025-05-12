@@ -31,9 +31,16 @@ namespace Player
         private Coroutine boostCoroutine;
         private bool isWalkingSoundPlaying;
         public bool isBoostingActive = true;
-
         public bool isGreamReaperActive = false;
         private Coroutine healthDecreaseCoroutine;
+
+
+        private void OnEnable()
+        {
+            PlayerCardEffectsController.MoreBrain += DisableRun;
+            PlayerCardEffectsController.GrimReaper += RunningCausesDamage;
+            PlayerCardEffectsController.RestartAllStats += RestartStats;
+        }
 
         void Start()
         {
@@ -41,9 +48,7 @@ namespace Player
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            PlayerCardEffectsController.MoreBrain += DisableRun;
-            PlayerCardEffectsController.GrimReaper += RunningCausesDamage;
-            PlayerCardEffectsController.RestartAllStats += RestartStats;
+            
         }
 
         void Update()
@@ -137,10 +142,7 @@ namespace Player
 
         public void DisableRun()
         {
-            Debug.Log("Disable run");
-            isRunning = false;
-            speedEffect.SetActive(false);
-            characterAnimator.SetBool("IsRunning", false);
+            isBoostingActive = false;
         }
         public void RestartStats()
         {
@@ -160,7 +162,6 @@ namespace Player
         public void RunningCausesDamage()
         {
             isGreamReaperActive = true;
-          
         }
 
         private void OnDisable()

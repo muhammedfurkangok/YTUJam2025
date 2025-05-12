@@ -16,11 +16,15 @@ public class WeaponManager : SingletonMonoBehaviour<WeaponManager>
     public bool isBersekMode = false;
     public bool isOnlyHsMode = false;
 
-    private void Start()
+    private void OnEnable()
     {
         PlayerCardEffectsController.Berserk += BerserkMode;
         PlayerCardEffectsController.RestartAllStats += RestartAllStats;
-        PlayerCardEffectsController.BoomHeadshot += OnlyHeadShotMode;
+        PlayerCardEffectsController.BoomHeadshot += OnlyHeadShotMode;  
+    }
+
+    private void Start()
+    {
         EquipWeapon(0);
     }
 

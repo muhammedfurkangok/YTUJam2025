@@ -18,15 +18,18 @@ namespace Enemy
 
         private int currentEnemyCount = 0;
         private List<GameObject> enemies = new();
-        
+
         public bool doctorSyringe = false;
 
-        void Start()
+
+        private void OnEnable()
         {
             PlayerCardEffectsController.DoctorFinal += DoctorFinalInitialize;
             PlayerCardEffectsController.RestartAllStats += RestartAllStats;
+        }
 
-
+        void Start()
+        {
             BurstSpawner();
         }
 
@@ -48,6 +51,7 @@ namespace Enemy
             {
                 DoctorSyringe();
             }
+
             BurstSpawn();
             InvokeRepeating(nameof(SpawnEnemy), 5f, 5f); // Her 5 saniyede bir düşman spawnla
         }
@@ -76,7 +80,7 @@ namespace Enemy
         public void BurstSpawn()
         {
             canSpawn = true;
-            foreach(var point in spawnPoints)
+            foreach (var point in spawnPoints)
             {
                 int randomEnemy = Random.Range(0, enemyPrefabs.Length);
                 var enemy = Instantiate(enemyPrefabs[randomEnemy], point.position, Quaternion.identity);
@@ -88,7 +92,7 @@ namespace Enemy
         public void ClearEnemies()
         {
             canSpawn = false;
-            foreach(var enemy in enemies)
+            foreach (var enemy in enemies)
             {
                 Destroy(enemy);
             }

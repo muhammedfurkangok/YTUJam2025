@@ -18,6 +18,7 @@ namespace Player
 
         public void ExecuteCardEffect(CardData data)
         {
+            
             ApplyEffect(data.effectType);
         }
 
@@ -31,12 +32,13 @@ namespace Player
             switch (effect)
             {
                 case CardEffectType.Default:
+                    RestartAllStats?.Invoke();
                     break;
                 case CardEffectType.MoreBrain:
-                    MoreBrain?.Invoke();
+                    MoreBrain?.Invoke(); // koşamıyor
                     break;
                 case CardEffectType.Berserk:
-                    Berserk?.Invoke();
+                    Berserk?.Invoke(); //sadece el
                     break;
                 case CardEffectType.BoomHeadshot:
                     BoomHeadshot?.Invoke();
