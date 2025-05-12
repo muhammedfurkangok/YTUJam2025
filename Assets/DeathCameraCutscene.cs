@@ -16,7 +16,7 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
 
     [Header("Canvas")]
     [SerializeField] Canvas blackCanvas;
-    [SerializeField] Ease blackoutEase = Ease.InSine;
+    [SerializeField] Ease blackoutEase = Ease.Linear;
 
 
     private Vector3 startRot;
