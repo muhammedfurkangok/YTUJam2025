@@ -18,28 +18,24 @@ MonoBehaviour:
     CardFront: {fileID: 1611676444, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: 424643307, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: Doc is off the hook on this one.
-    ifCutScene: 0
     effectType: 0
-  - CardName: You're getting <shake><color=red>numb...</color></shake>
+  - CardName: You're getting <shake><color=blue>numb...</color></shake>
     CardImage: {fileID: 828561424, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
     CardFront: {fileID: -623534738, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: -2007166715, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: OUR FATHERS USED TO HEADBUTT BULLETS.
-    ifCutScene: 0
     effectType: 1
   - CardName: You suddenly DESIRE to<shake><color=red> EAT BRAINS! </color></shake>
     CardImage: {fileID: -973253533, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
     CardFront: {fileID: 143410448, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: -755955550, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: how do you shoot a gun again?..
-    ifCutScene: 0
     effectType: 2
   - CardName: Grim Reaper <shake><color=red>Hates You!</color></shake>
     CardImage: {fileID: 1887764015, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
     CardFront: {fileID: 1218474125, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: 1755395019, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: LIVE FAST DIE FAST
-    ifCutScene: 0
     effectType: 4
   - CardName: '"My heart''s beating, My hand''s are shaking," <shake><color=red>
       but I''m still shooting.</color></shake>'
@@ -47,19 +43,16 @@ MonoBehaviour:
     CardFront: {fileID: -69428185, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: 625103520, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: I'M STILL GETTING THE HEADSHOT, IT'S LIKE BOOM HEADSHOT
-    ifCutScene: 0
     effectType: 3
   - CardName: The Doc's syringe is<shake><color=red> getting duller...</color></shake>
     CardImage: {fileID: 688240175, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
     CardFront: {fileID: -1119157681, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: -945514109, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: One must imagine Sisyphus happy!
-    ifCutScene: 0
     effectType: 5
   - CardName: <shake><color=red> It's Over Doctor.</color></shake>
     CardImage: {fileID: 680387436, guid: bb659a0d956fdac4d9306f4c9d1b9944, type: 3}
     CardFront: {fileID: 143410448, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardBack: {fileID: -755955550, guid: 5393b91d5457b6744ad6ccccaec47b98, type: 3}
     CardDescription: I can see the light for real this time...
-    ifCutScene: 0
     effectType: 6
