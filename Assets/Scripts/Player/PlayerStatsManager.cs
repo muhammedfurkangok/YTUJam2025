@@ -19,6 +19,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     private bool isUsingStamina = false;
     private bool isRegenerating = false;
     [SerializeField] private bool isDoctorSyringe = false;
+    private float syringeTimer = 0f;
 
     public event Action OnDeath;
 
@@ -30,7 +31,6 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
         PlayerCardEffectsController.DoctorsSyringe += DoctorsSyringe;
     }
 
- 
 
     void Update()
     {
@@ -86,10 +86,12 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
 
     private async void DoctorSyringeHealthDecrease()
     {
-        if (isDoctorSyringe)
+        syringeTimer += Time.deltaTime;
+
+        if (syringeTimer >= 2f)
         {
-            DecreaseHealth(1);
-            await UniTask.WaitForSeconds(1f);
+            syringeTimer = 0f; // Reset the timer
+            DecreaseHealth(1); // Decrease health
         }
     }
 
@@ -113,13 +115,13 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     public void IncreaseHealth(int amount)
     {
         health = Mathf.Min(health + amount, maxHealth);
-        UIManager.Instance.UpdateHealthBar(health , maxHealth);
+        UIManager.Instance.UpdateHealthBar(health, maxHealth);
     }
 
     public void DecreaseHealth(int amount)
     {
         health = Mathf.Max(health - amount, 0);
-        UIManager.Instance.UpdateHealthBar(health , maxHealth);
+        UIManager.Instance.UpdateHealthBar(health, maxHealth);
         if (health == 0)
         {
             OnDeath?.Invoke();
@@ -131,22 +133,20 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         maxHealth = 150;
         health = 150;
-        UIManager.Instance.UpdateHealthBar(health , maxHealth);
+        UIManager.Instance.UpdateHealthBar(health, maxHealth);
 
         UIManager.Instance.UpdateStaminaBar(stamina, maxStamina);
-
     }
-    
+
     private void DoctorsSyringe()
     {
         health = 200;
         maxHealth = 200;
         stamina = 200f;
         maxStamina = 200f;
-        UIManager.Instance.UpdateHealthBar(health , maxHealth);
-
+        isDoctorSyringe = true;
+        UIManager.Instance.UpdateHealthBar(health, maxHealth);
         UIManager.Instance.UpdateStaminaBar(stamina, maxStamina);
-
     }
 
     public void RestartAllStats()
