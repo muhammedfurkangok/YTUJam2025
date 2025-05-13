@@ -11,7 +11,7 @@ public class CardManager : SingletonMonoBehaviour<CardManager>
     public void RandomCard()
     {
         int randomIndex = Random.Range(0, cardSO.cardData.Length);
-        var data = cardSO.cardData[6];
+        var data = cardSO.cardData[randomIndex];
         sceneCard.SetCardData(data);
         sceneCard.RevealCard();
         PlayerCardEffectsController.Instance.ExecuteCardEffect(data);

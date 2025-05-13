@@ -10,7 +10,7 @@ public class CutSceneController : SingletonMonoBehaviour<CutSceneController>
 
     private void Start()
     {
-        CardManager.Instance.RandomCard();
+        CutSceneStart();
     }
 
   

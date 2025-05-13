@@ -155,6 +155,7 @@ Transform:
   m_Children:
   - {fileID: 1018463701999494541}
   - {fileID: 1608310086905199570}
+  - {fileID: 3541582804022942186}
   m_Father: {fileID: 1372315675578416594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8736393243107248132
@@ -392,9 +393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0202c4c39b430482e78ef651115b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 5000
   moveSpeed: 3.5
-  attackRange: 2
+  attackRange: 50
   damage: 10
   spriteDirectionalController: {fileID: 7456015334001099682}
   player: {fileID: 0}
@@ -407,9 +408,51 @@ MonoBehaviour:
   - {fileID: 7441240671354961428}
   enemyAudioSource: {fileID: 334857286595556893}
   AudioClips: []
-  maxHealth: 1000
+  maxHealth: 5000
   bossHealthBarBackground: {fileID: 5641171465899693606}
   bossHealthBarFill: {fileID: 1597493630185307976}
+  projectilePrefab: {fileID: 6667506555167492218, guid: 96fa07b6aa5608344948b5e4f04acef5, type: 3}
+  shootPoint: {fileID: 3541582804022942186}
+--- !u!1 &2432010444900806316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3541582804022942186}
+  - component: {fileID: 8101891816243317825}
+  m_Layer: 7
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3541582804022942186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432010444900806316}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.248, y: 0.063, z: 0}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7433504793505605684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8101891816243317825
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432010444900806316}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &3290660332634370688
 GameObject:
   m_ObjectHideFlags: 0

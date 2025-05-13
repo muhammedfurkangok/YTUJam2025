@@ -73,6 +73,7 @@ namespace Enemy
 
             if (currentHealth <= 0)
             {
+                spriteDirectionalController.animator.SetTrigger("Die");
                 Die();
             }
         }
@@ -93,6 +94,7 @@ namespace Enemy
 
             if (currentHealth <= 0)
             {
+                spriteDirectionalController.animator.SetTrigger("Die");
                 Die();
             }
         }
