@@ -30,15 +30,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
         PlayerCardEffectsController.DoctorsSyringe += DoctorsSyringe;
     }
 
-    private void DoctorsSyringe()
-    {
-        health = 200;
-        maxHealth = 200;
-        stamina = 200f;
-        maxStamina = 200f;
-        UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
-        UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
-    }
+ 
 
     void Update()
     {
@@ -106,7 +98,8 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
         while (stamina > 0f)
         {
             stamina = Mathf.Max(0f, stamina - 1f);
-            UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
+            UIManager.Instance.UpdateStaminaBar(stamina, maxStamina);
+
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -114,19 +107,19 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     private void RegenerateStamina()
     {
         stamina = Mathf.Min(stamina + 20f * Time.deltaTime, maxStamina);
-        UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
+        UIManager.Instance.UpdateStaminaBar(stamina, maxStamina);
     }
 
     public void IncreaseHealth(int amount)
     {
         health = Mathf.Min(health + amount, maxHealth);
-        UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
+        UIManager.Instance.UpdateHealthBar(health , maxHealth);
     }
 
     public void DecreaseHealth(int amount)
     {
         health = Mathf.Max(health - amount, 0);
-        UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
+        UIManager.Instance.UpdateHealthBar(health , maxHealth);
         if (health == 0)
         {
             OnDeath?.Invoke();
@@ -138,8 +131,22 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     {
         maxHealth = 150;
         health = 150;
-        UIManager.Instance.UpdateHealthBar((float)health / maxHealth);
-        UIManager.Instance.UpdateStaminaBar(stamina / maxStamina);
+        UIManager.Instance.UpdateHealthBar(health , maxHealth);
+
+        UIManager.Instance.UpdateStaminaBar(stamina, maxStamina);
+
+    }
+    
+    private void DoctorsSyringe()
+    {
+        health = 200;
+        maxHealth = 200;
+        stamina = 200f;
+        maxStamina = 200f;
+        UIManager.Instance.UpdateHealthBar(health , maxHealth);
+
+        UIManager.Instance.UpdateStaminaBar(stamina, maxStamina);
+
     }
 
     public void RestartAllStats()
