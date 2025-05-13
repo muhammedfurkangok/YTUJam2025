@@ -401,7 +401,10 @@ MonoBehaviour:
   agent: {fileID: 3366999657687480616}
   isDead: 0
   dontDestroy: 0
-  patrolPoints: []
+  patrolPoints:
+  - {fileID: 2752581454620758582}
+  - {fileID: 7937423722735512476}
+  - {fileID: 7441240671354961428}
   enemyAudioSource: {fileID: 334857286595556893}
   AudioClips: []
   maxHealth: 1000

@@ -1,6 +1,4 @@
-using System;
 using DG.Tweening;
-using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,13 +9,15 @@ namespace Enemy
         private float attackCooldown = 2f;
         private float lastAttackTime = 0f;
 
-        [Header("Health Settings")]
-        public float maxHealth = 1000f;
+        [Header("Health Settings")] public float maxHealth = 1000f;
         private float currentHealth;
 
-        [Header("UI Settings")]
-        public GameObject bossHealthBarBackground;
+        [Header("UI Settings")] public GameObject bossHealthBarBackground;
         public Image bossHealthBarFill;
+
+        [Header("Attack Settings")] public GameObject projectilePrefab; // Projectile prefab
+        public Transform shootPoint; // Point from where the projectile is shot
+        private float projectileSpeed = 20f;
 
         private void Start()
         {
@@ -44,22 +44,21 @@ namespace Enemy
         {
             spriteDirectionalController.animator.SetTrigger("Attack");
 
-            // Calculate direction to the player
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            ShootProjectile();
+        }
 
-            // Adjust the box center to face the player
-            Vector3 boxCenter = transform.position + directionToPlayer * 1.2f;
-            Vector3 boxSize = new Vector3(1.5f, 2f, 1.5f);
-
-            Collider[] hits = Physics.OverlapBox(boxCenter, boxSize / 2, Quaternion.identity);
-
-            foreach (var hit in hits)
+        private void ShootProjectile()
+        {
+            // Instantiate the projectile at the shoot point
+            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            if (rb != null)
             {
-                if (hit.CompareTag("Player"))
-                {
-                    PlayerStatsManager.Instance.DecreaseHealth(damage);
-                    break;
-                }
+                // Calculate the direction to the player
+                Vector3 directionToPlayer = (player.position - shootPoint.position).normalized;
+
+                // Set the projectile's velocity
+                rb.linearVelocity = directionToPlayer * projectileSpeed;
             }
         }
 
@@ -78,26 +77,31 @@ namespace Enemy
             }
         }
 
+        public override void TakeDamage(float damageAmount, bool isHeadShot)
+        {
+            if (isDead) return;
+
+            if (isHeadShot)
+            {
+                damageAmount *= 0.5f;
+            }
+
+            currentHealth -= damageAmount;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+            bossHealthBarFill.fillAmount = currentHealth / maxHealth;
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+
         protected override void Die()
         {
             base.Die();
-
             HealhBarCloseAnimation();
             SuicideManager.Instance.Suicide();
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Vector3 boxCenter = transform.position + transform.forward * 1.2f;
-            Vector3 boxSize = new Vector3(1.5f, 2f, 1.5f);
-            Gizmos.matrix = Matrix4x4.TRS(boxCenter, transform.rotation, Vector3.one);
-            Gizmos.DrawWireCube(Vector3.zero, boxSize);
-        }
-
-        public void WalkSound()
-        {
-           
         }
 
         private void HealthBarInitializeAnimation()
@@ -117,7 +121,7 @@ namespace Enemy
         {
             bossHealthBarBackground.transform.DOScale(new Vector3(0, 1, 1), 0.5f)
                 .SetEase(Ease.InBack);
-             bossHealthBarFill.fillAmount = 0f;
+            bossHealthBarFill.fillAmount = 0f;
         }
     }
 }
