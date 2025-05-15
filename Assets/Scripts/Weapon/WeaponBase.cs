@@ -152,5 +152,8 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         isFiring = false;
         weaponAnimator.ResetTrigger("Fire");
     }
+       
     public bool IsAuto() => data.isAuto;
+    public abstract void PlayReloadSound();
+    public abstract void PlayFireSound();
 }

@@ -11,11 +11,31 @@ public class Fist : WeaponBase
     protected override void PlayFireEffects()
     {
         base.PlayFireEffects(); 
-       
-        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
-        WeaponManager.Instance.ShakeCamera(); 
-
     }
+
+    public override void Fire()
+    {
+        base.Fire();
+        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
+        WeaponManager.Instance.ShakeCamera();
+    }
+    public override void PlayReloadSound()
+    {
+        
+    }
+
+    public override void PlayFireSound()
+    {
+        AudioManager.Instance.PlayOneShotSound(SoundType.FistHit);
+        WeaponManager.Instance.ShakeCamera();
+    }
+
+    public void PlayHeadSound()
+    {
+        AudioManager.Instance.PlayOneShotSound(SoundType.HeadExplosion);
+        WeaponManager.Instance.ShakeCamera();
+    }
+
 
     public void KillScoutAnimation()
     {

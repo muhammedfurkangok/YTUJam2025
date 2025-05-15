@@ -80,10 +80,22 @@ public class Shotgun : WeaponBase
         WeaponManager.Instance.ShakeCamera();
     }
 
+    public override void PlayReloadSound()
+    {
+        AudioManager.Instance.PlayOneShotSound(SoundType.ShotgunReload);
+       
+    }
+
+    public override void PlayFireSound()
+    {
+        AudioManager.Instance.PlayOneShotSound(SoundType.ShotgunShoot);
+        WeaponManager.Instance.ShakeCamera();
+    }
+
     public override void Reload()
     {
         base.Reload();
-        AudioManager.Instance.PlayOneShotSound(SoundType.ShotgunReload);
+      
     }
 
     private void ShowFloatingText(string value, Vector3 position)
