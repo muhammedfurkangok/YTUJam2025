@@ -85,6 +85,8 @@ public class PostProcessVFXController : SingletonMonoBehaviour<PostProcessVFXCon
     }
     private void ResetPostProcess()
     {
+        if (volume == null) return;
+        
         if (!volume.sharedProfile.TryGet(out Bloom bloom)) return;
 
         bloom.intensity.value = defaultBloomIntensity;
