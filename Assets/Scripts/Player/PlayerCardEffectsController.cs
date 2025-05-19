@@ -5,8 +5,6 @@ namespace Player
 {
     public class PlayerCardEffectsController : SingletonMonoBehaviour<PlayerCardEffectsController>
     {
-        public CameraController cameraController;
-
         public static event Action MoreBrain;
         public static event Action Berserk;
         public static event Action BoomHeadshot;
@@ -18,7 +16,9 @@ namespace Player
 
         public void ExecuteCardEffect(CardData data)
         {
+            Debug.Log("Applying effect: " + data.effectType);
             
+            RestartAll();
             ApplyEffect(data.effectType);
         }
 
@@ -57,6 +57,16 @@ namespace Player
                     Debug.Log("Effect: None");
                     break;
             }
+        }
+
+        private void OnDisable()
+        {
+            MoreBrain = null;
+            Berserk = null;
+            BoomHeadshot = null;
+            GrimReaper = null;
+            DoctorsSyringe = null;
+            DoctorFinal = null;
         }
     }
 }

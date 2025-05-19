@@ -23,7 +23,7 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
     private void Start()
     {
         startRot = Vector3.zero;
-        PlayerStatsManager.Instance.OnDeath += DieAnim;
+        PlayerStatsManager.OnDeath += DieAnim;
     }
 
    

@@ -21,7 +21,7 @@ public class PlayerStatsManager : SingletonMonoBehaviour<PlayerStatsManager>
     [SerializeField] private bool isDoctorSyringe = false;
     private float syringeTimer = 0f;
 
-    public event Action OnDeath;
+    public static event Action OnDeath;
 
 
     private void OnEnable()
