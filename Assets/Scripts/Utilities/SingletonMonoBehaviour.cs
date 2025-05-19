@@ -1,48 +1,27 @@
 using UnityEngine;
 
-    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T>
+public class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T>
+{
+    public static T Instance { get; private set; }
+
+    protected virtual void Awake()
     {
-        public static T Instance
+        // Eğer sahnede bu scriptten başka bir tane varsa yok et
+        if (Instance != null && Instance != this)
         {
-            get
-            {
-                if (!instance)
-                {
-                    instance = FindObjectOfType(typeof(T)) as T;
-
-                    if (!instance)
-                    {
-                        GameObject go = new GameObject(typeof(T).ToString());
-                        instance = go.AddComponent<T>();
-                    }
-                }
-
-                return instance;
-            }
+            Destroy(gameObject); // Yeni gelen kopyayı sil
+            return;
         }
 
-        [SerializeField]
-        private bool dontDestroyOnLoad;
-
-        private static T instance;
-
-        protected void Awake()
-        {
-            if (Instance != this)
-            {
-                Destroy(this);
-            }
-            else if (Instance != null)
-            {
-                if (dontDestroyOnLoad)
-                {
-                    transform.SetParent(null);
-                    DontDestroyOnLoad(gameObject);
-                }
-
-                ChildAwake();
-            }
-        }
-
-        protected virtual void ChildAwake() { }
+        Instance = this as T;
+        ChildAwake();
     }
+
+    protected virtual void ChildAwake() { }
+
+    protected virtual void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
+}

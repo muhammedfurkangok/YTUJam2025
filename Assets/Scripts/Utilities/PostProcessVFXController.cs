@@ -99,5 +99,9 @@ public class PostProcessVFXController : SingletonMonoBehaviour<PostProcessVFXCon
     private void OnDisable()
     {
         ResetPostProcess();
+        
+        DoctorController.OnDoctorStab -= DoctorController_OnDoctorStab;
+        DoctorController.OnDoctorEnject -= DoctorController_OnDoctorEnject;
+        DoctorController.OnDoctorAttackEnd -= DoctorController_OnDoctorAttackEnd;
     }
 }

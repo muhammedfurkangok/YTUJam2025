@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
@@ -20,10 +21,16 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
 
 
     private Vector3 startRot;
+
+    private void OnEnable()
+    {
+        PlayerStatsManager.OnDeath += DieAnim;
+    }
+
     private void Start()
     {
         startRot = Vector3.zero;
-        PlayerStatsManager.OnDeath += DieAnim;
+        
     }
 
    
@@ -40,4 +47,9 @@ public class DeathCameraCutscene : SingletonMonoBehaviour<DeathCameraCutscene>
         blackCanvas.GetComponent<CanvasGroup>().DOFade(1f, duration + 1f).SetEase(blackoutEase).OnComplete(() => SceneManager.LoadScene(2));
     }
 
+
+    private void OnDisable()
+    {
+        PlayerStatsManager.OnDeath -= DieAnim;
+    }
 }
